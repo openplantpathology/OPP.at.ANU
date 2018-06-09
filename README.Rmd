@@ -15,8 +15,11 @@ knitr::opts_chunk$set(
 # OPP@IEW12
 
 [![Travis-CI Build Status](https://travis-ci.org/openplantpathology/OPP.at.IEW12.svg?branch=master)](https://travis-ci.org/openplantpathology/OPP.at.IEW12)
- [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/openplantpathology/OPP.at.IEW12?branch=master&svg=true)](https://ci.appveyor.com/project/openplantpathology/OPP.at.IEW12)
+
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/openplantpathology/OPP.at.IEW12?branch=master&svg=true)](https://ci.appveyor.com/project/openplantpathology/OPP.at.IEW12)
+
 [![DOI](https://zenodo.org/badge/136692607.svg)](https://zenodo.org/badge/latestdoi/136692607)
+
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
 
