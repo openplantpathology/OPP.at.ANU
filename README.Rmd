@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 This repository contains the data and code for our presentation at the 12th
 International Epidemiology Workshop:
 
-> Del Ponte, E.M. Sparks, A.H. (2018). _Open ideas, data and code sharing: epidemiologists should be in front!_. Proceedings of the 12th International Epidemiology Workshop <https://doi.org/xxx/xxx>
+> Del Ponte, E.M. Sparks, A.H. (2018). _Open ideas, data and code sharing: epidemiologists should be in front!_. Proceedings of the 12th International Epidemiology Workshop
 
 The code used to generate graphs that were presented at IEW12 can be found in
 the [articles](https://openplantpathology.github.io/OPP.at.IEW12/articles/IEW12_slides.html).
@@ -35,7 +35,7 @@ The data are from https://openplantpathology.github.io/Reproducibility_in_Plant_
 
 Please cite this compendium as:
 
-> EM Del Ponte, AH Sparks, (`r format(Sys.Date(), "%Y")`). _Compendium of R code and data for 'Open ideas, data and code sharing: epidemiologists should be in front!'_. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/xxx/xxx>
+> EM Del Ponte, AH Sparks, (`r format(Sys.Date(), "%Y")`). _Compendium of R code and data for 'Open ideas, data and code sharing: epidemiologists should be in front!'_. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/10.5281/zenodo.1286101>
 
 ### How to download or install
 
