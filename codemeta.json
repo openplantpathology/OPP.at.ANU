@@ -1,5 +1,8 @@
 {
-  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@context": [
+    "https://doi.org/10.5063/schema/codemeta-2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "OPP.at.IEW12",
   "description": "Supplementary material for talk at IEW12 delivered by Emerson M \n  Del Ponte.",
@@ -152,7 +155,10 @@
   ],
   "softwareRequirements": [],
   "readme": "https://github.com/openplantpathology/OPP.at.IEW12/blob/master/README.md",
-  "fileSize": "31.134KB",
-  "contIntegration": ["https://travis-ci.org/openplantpathology/OPP.at.IEW12", "https://ci.appveyor.com/project/adamhsparks/opp-at-iew12/branch/master"],
+  "fileSize": "31.133KB",
+  "contIntegration": [
+    "https://travis-ci.org/openplantpathology/OPP.at.IEW12",
+    "https://ci.appveyor.com/project/adamhsparks/opp-at-iew12/branch/master"
+  ],
   "developmentStatus": "http://www.repostatus.org/#active"
 }
