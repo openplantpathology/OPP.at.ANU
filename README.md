@@ -7,7 +7,7 @@
 
 This repository contains the data and code for our presentation at the 12th International Epidemiology Workshop:
 
-> Del Ponte, E.M. Sparks, A.H. (2018). *Open ideas, data and code sharing: epidemiologists should be in front!*. Proceedings of the 12th International Epidemiology Workshop <https://doi.org/xxx/xxx>
+> Del Ponte, E.M. Sparks, A.H. (2018). *Open ideas, data and code sharing: epidemiologists should be in front!*. Proceedings of the 12th International Epidemiology Workshop
 
 The code used to generate graphs that were presented at IEW12 can be found in the [articles](https://openplantpathology.github.io/OPP.at.IEW12/articles/IEW12_slides.html).
 
@@ -19,11 +19,11 @@ The data are from <https://openplantpathology.github.io/Reproducibility_in_Plant
 
 Please cite this compendium as:
 
-> EM Del Ponte, AH Sparks, (2018). *Compendium of R code and data for 'Open ideas, data and code sharing: epidemiologists should be in front!'*. Accessed 09 Jun 2018. Online at <https://doi.org/xxx/xxx>
+> EM Del Ponte, AH Sparks, (2018). *Compendium of R code and data for 'Open ideas, data and code sharing: epidemiologists should be in front!'*. Accessed 09 Jun 2018. Online at <https://doi.org/10.5281/zenodo.1286101>
 
 ### How to download or install
 
-You can download the compendium as a zip from from this URL: </archive/master.zip>
+You can download the compendium as a zip from from this URL: <https://github.com/openplantpathology/OPP.at.IEW12/archive/master.zip>
 
 Or you can install this compendium as an R package, OPP.at.IEW12, from GitHub with:
 

@@ -39,7 +39,7 @@ Please cite this compendium as:
 
 ### How to download or install
 
-You can download the compendium as a zip from from this URL: </archive/master.zip>
+You can download the compendium as a zip from from this URL: <https://github.com/openplantpathology/OPP.at.IEW12/archive/master.zip>
 
 Or you can install this compendium as an R package, OPP.at.IEW12, from GitHub with:
 ```r
