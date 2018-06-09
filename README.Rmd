@@ -12,22 +12,18 @@ knitr::opts_chunk$set(
 )
 ```
 
-# OPP.at.IEW12
+# OPP@IEW12
 
-This repository contains the data and code for our paper:
+This repository contains the data and code for our presentation at the 12th
+International Epidemiology Workshop:
 
-> Authors, (YYYY). _Title of paper_. Name of journal/book <https://doi.org/xxx/xxx>
-
-Our pre-print is online here:
-
-> Authors, (YYYY). _Title of paper_. Name of journal/book, Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/xxx/xxx>
-
+> EM Del Ponte, AH Sparks (2018). _Open ideas, data and code sharing: epidemiologists should be in front!_. Proceedings of the 12th International Epidemiology Workshop <https://doi.org/xxx/xxx>
 
 ### How to cite
 
 Please cite this compendium as:
 
-> Authors, (`r format(Sys.Date(), "%Y")`). _Compendium of R code and data for 'Title of paper'_. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/xxx/xxx>
+> EM Del Ponte, AH Sparks, (`r format(Sys.Date(), "%Y")`). _Compendium of R code and data for 'Open ideas, data and code sharing: epidemiologists should be in front!'_. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/xxx/xxx>
 
 ### How to download or install
 
