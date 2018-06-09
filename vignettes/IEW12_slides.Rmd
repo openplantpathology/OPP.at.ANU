@@ -33,21 +33,6 @@ rrpp <- gsheet2tbl(
 )
 ```
 
-## Calculate reproducibility score
-```{r}
-rrpp <-
-  rrpp %>%
-  rowwise() %>% 
-  mutate(
-    reproducibility_score =
-      sum(comp_mthds_avail,
-          software_avail,
-          software_cite,
-          data_avail,
-          na.rm = TRUE)
-  )
-```
-
 ## Unnest the software that were used
 
 ```{r}
@@ -59,6 +44,7 @@ rrpp <-
 # Visualise evaluations
 
 ## Article classes
+
 ```{r}
 ggplot(rrpp, aes(x = art_class)) +
   geom_bar(stat = "count",
@@ -73,6 +59,9 @@ ggplot(rrpp, aes(x = art_class)) +
 
 ## Computational methods available
 
+Are analysis scripts and any special software used available for inspection and
+reuse to reproduce the work? Readily available (3) to not mentioned (1).
+
 ```{r}
 ggplot(rrpp, aes(x = comp_mthds_avail)) +
   geom_bar(stat = "count",
@@ -85,17 +74,23 @@ ggplot(rrpp, aes(x = comp_mthds_avail)) +
 
 ## Software availability
 
+Is the software readily available? Open source (3, good) to proprietary and \$$
+(1).
+
 ```{r}
 ggplot(rrpp, aes(x = software_avail)) +
   geom_bar(stat = "count",
            fill = "#0B5394",
            colour = "#0B5394") +
-  ggtitle("Software Availablity") +
+  ggtitle("Software availability") +
   xlab("Score") +
   theme_ipsum_rc()
 ```
 
 ## Data availability
+
+Is the data readily available from a proper archiving repository, e.g. Zenodo
+or Dataverse (3) to not mentioned (1).
 
 ```{r}
 ggplot(rrpp, aes(x = data_avail)) +
@@ -108,6 +103,10 @@ ggplot(rrpp, aes(x = data_avail)) +
 ```
 
 ## Software citations
+
+Was the software used properly cited? All versions and packages cited (3) to
+not described what was used (1).
+
 ```{r}
 ggplot(rrpp, aes(x = software_cite)) +
   geom_bar(stat = "count",
@@ -119,6 +118,8 @@ ggplot(rrpp, aes(x = software_cite)) +
 ```
 
 ## Software used (cited)
+
+What are the 10 most popular software packages used?
 
 ```{r}
 tab <- table(rrpp$software_used)
@@ -140,7 +141,29 @@ ggplot(top_software, aes(x = software_used)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
   
+
 ## Reproducibility score
+
+Using the four areas above, computational method availability, software availability, software citations and data availability, how reproducible is the
+paper? In the reproducibility score, the software availability and software
+citation are weighted to half the value of data and computational method
+availability.
+
+### Calculate reproducibility score
+```{r}
+rrpp <-
+  rrpp %>%
+  rowwise() %>% 
+  mutate(
+    reproducibility_score =
+      sum(comp_mthds_avail,
+          (software_avail + software_cite) * 0.5,
+          data_avail,
+          na.rm = TRUE)
+  )
+```
+
+### Graph reproducibility score
 
 ```{r}  
   ggplot(rrpp, aes(x = reproducibility_score)) +

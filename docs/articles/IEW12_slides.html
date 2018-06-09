@@ -117,21 +117,6 @@
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rrpp &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/gsheet/topics/gsheet2tbl">gsheet2tbl</a></span>(
   <span class="st">"https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"</span>
 )</code></pre></div>
-<div id="calculate-reproducibility-score" class="section level2">
-<h2 class="hasAnchor">
-<a href="#calculate-reproducibility-score" class="anchor"></a>Calculate reproducibility score</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rrpp &lt;-
-<span class="st">  </span>rrpp <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/rowwise.html">rowwise</a></span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(
-    <span class="dt">reproducibility_score =</span>
-      <span class="kw">sum</span>(comp_mthds_avail,
-          software_avail,
-          software_cite,
-          data_avail,
-          <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
-  )</code></pre></div>
-</div>
 <div id="unnest-the-software-that-were-used" class="section level2">
 <h2 class="hasAnchor">
 <a href="#unnest-the-software-that-were-used" class="anchor"></a>Unnest the software that were used</h2>
@@ -155,11 +140,12 @@
                                    <span class="dt">hjust =</span> <span class="dv">1</span>)) <span class="op">+</span>
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Article Classification"</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/hrbrthemes/topics/theme_ipsum_rc">theme_ipsum_rc</a></span>()</code></pre></div>
-<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
 </div>
 <div id="computational-methods-available" class="section level2">
 <h2 class="hasAnchor">
 <a href="#computational-methods-available" class="anchor"></a>Computational methods available</h2>
+<p>Are analysis scripts and any special software used available for inspection and reuse to reproduce the work? Readily available (3) to not mentioned (1).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> comp_mthds_avail)) <span class="op">+</span>
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"count"</span>,
            <span class="dt">fill =</span> <span class="st">"#0B5394"</span>,
@@ -168,24 +154,26 @@
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/hrbrthemes/topics/theme_ipsum_rc">theme_ipsum_rc</a></span>()
 <span class="co">#&gt; Warning: Removed 8 rows containing non-finite values (stat_count).</span></code></pre></div>
-<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
+<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
 </div>
 <div id="software-availability" class="section level2">
 <h2 class="hasAnchor">
 <a href="#software-availability" class="anchor"></a>Software availability</h2>
+<p>Is the software readily available? Open source (3, good) to proprietary and $$ (1).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> software_avail)) <span class="op">+</span>
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"count"</span>,
            <span class="dt">fill =</span> <span class="st">"#0B5394"</span>,
            <span class="dt">colour =</span> <span class="st">"#0B5394"</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Software Availablity"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Software availability"</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/hrbrthemes/topics/theme_ipsum_rc">theme_ipsum_rc</a></span>()
 <span class="co">#&gt; Warning: Removed 3 rows containing non-finite values (stat_count).</span></code></pre></div>
-<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
+<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
 </div>
 <div id="data-availability" class="section level2">
 <h2 class="hasAnchor">
 <a href="#data-availability" class="anchor"></a>Data availability</h2>
+<p>Is the data readily available from a proper archiving repository, e.g. Zenodo or Dataverse (3) to not mentioned (1).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> data_avail)) <span class="op">+</span>
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"count"</span>,
            <span class="dt">fill =</span> <span class="st">"#0B5394"</span>,
@@ -194,11 +182,12 @@
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/hrbrthemes/topics/theme_ipsum_rc">theme_ipsum_rc</a></span>()
 <span class="co">#&gt; Warning: Removed 1 rows containing non-finite values (stat_count).</span></code></pre></div>
-<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
+<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
 </div>
 <div id="software-citations" class="section level2">
 <h2 class="hasAnchor">
 <a href="#software-citations" class="anchor"></a>Software citations</h2>
+<p>Was the software used properly cited? All versions and packages cited (3) to not described what was used (1).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> software_cite)) <span class="op">+</span>
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"count"</span>,
            <span class="dt">fill =</span> <span class="st">"#0B5394"</span>,
@@ -207,11 +196,12 @@
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/hrbrthemes/topics/theme_ipsum_rc">theme_ipsum_rc</a></span>()
 <span class="co">#&gt; Warning: Removed 3 rows containing non-finite values (stat_count).</span></code></pre></div>
-<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
+<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
 </div>
 <div id="software-used-cited" class="section level2">
 <h2 class="hasAnchor">
 <a href="#software-used-cited" class="anchor"></a>Software used (cited)</h2>
+<p>What are the 10 most popular software packages used?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tab &lt;-<span class="st"> </span><span class="kw">table</span>(rrpp<span class="op">$</span>software_used)
 tab_s &lt;-<span class="st"> </span><span class="kw">sort</span>(tab)
 top10 &lt;-<span class="st"> </span><span class="kw">tail</span>(<span class="kw">names</span>(tab_s), <span class="dv">17</span>) <span class="co"># checking the table, there are several ties</span>
@@ -229,11 +219,29 @@ top_software<span class="op">$</span>software_used &lt;-<span class="st"> </span
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Count"</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/hrbrthemes/topics/theme_ipsum_rc">theme_ipsum_rc</a></span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</code></pre></div>
-<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
+<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
 </div>
 <div id="reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#reproducibility-score" class="anchor"></a>Reproducibility score</h2>
+<p>Using the four areas above, computational method availability, software availability, software citations and data availability, how reproducible is the paper? In the reproducibility score, the software availability and software citation are weighted to half the value of data and computational method availability.</p>
+<div id="calculate-reproducibility-score" class="section level3">
+<h3 class="hasAnchor">
+<a href="#calculate-reproducibility-score" class="anchor"></a>Calculate reproducibility score</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rrpp &lt;-
+<span class="st">  </span>rrpp <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/rowwise.html">rowwise</a></span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(
+    <span class="dt">reproducibility_score =</span>
+      <span class="kw">sum</span>(comp_mthds_avail,
+          (software_avail <span class="op">+</span><span class="st"> </span>software_cite) <span class="op">*</span><span class="st"> </span><span class="fl">0.5</span>,
+          data_avail,
+          <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
+  )</code></pre></div>
+</div>
+<div id="graph-reproducibility-score" class="section level3">
+<h3 class="hasAnchor">
+<a href="#graph-reproducibility-score" class="anchor"></a>Graph reproducibility score</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> reproducibility_score)) <span class="op">+</span>
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"count"</span>,
            <span class="dt">fill =</span> <span class="st">"#0B5394"</span>,
@@ -242,6 +250,7 @@ top_software<span class="op">$</span>software_used &lt;-<span class="st"> </span
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/hrbrthemes/topics/theme_ipsum_rc">theme_ipsum_rc</a></span>()</code></pre></div>
 <p><img src="IEW12_slides_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
+</div>
 </div>
 <div id="article-class-effect-on-reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
@@ -361,8 +370,7 @@ top_software<span class="op">$</span>software_used &lt;-<span class="st"> </span
       <ul class="nav nav-pills nav-stacked">
 <li>
 <a href="#import-article-evaluations">Import article evaluations</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#calculate-reproducibility-score">Calculate reproducibility score</a></li>
-      <li><a href="#unnest-the-software-that-were-used">Unnest the software that were used</a></li>
+<li><a href="#unnest-the-software-that-were-used">Unnest the software that were used</a></li>
       </ul>
 </li>
       <li>
