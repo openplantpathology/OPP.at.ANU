@@ -1,0 +1,30 @@
+Package: OPP.at.IEW12
+Version: 0.0.0.9000
+Title: Open ideas, data and code sharing: epidemiologists should be in front!
+Description: Supplementary material for talk at IEW12 delivered by Emerson M 
+  Del Ponte.
+Authors@R: c(
+   person(given = "Adam H.", family = "Sparks",
+   role = c("aut", "cre"),
+   email = "adamhsparks@gmail.com",
+   comment = c(ORCID = "0000-0002-0061-8359")),
+   person(given = "Emerson M.", family ="Del Ponte",
+   role = "aut",
+   email = "edelponte@gmail.com",
+   comment = c(ORCID = "0000-0003-4398-409X")))
+License: MIT + file LICENSE
+Suggests:
+   devtools,
+   dplyr,
+   ggplot2,
+   gsheets,
+   hrbrthemes,
+   knitr,
+   magrittr,
+   rmarkdown,
+   tidyr
+Remotes: hrbrmstr/hrbrthemes
+Encoding: UTF-8
+LazyData: true
+ByteCompile: true
+RoxygenNote: 6.0.1
