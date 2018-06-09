@@ -20,6 +20,7 @@ knitr::opts_chunk$set(
 library(hrbrthemes)
 library(dplyr)
 library(ggplot2)
+library(gsheet)
 library(magrittr)
 library(tidyr)
 ```
@@ -27,7 +28,7 @@ library(tidyr)
 # Import article evaluations
 
 ```{r}
-rrpp <- gsheet::gsheet2tbl(
+rrpp <- gsheet2tbl(
   "https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"
 )
 ```

@@ -102,6 +102,7 @@
 <span class="co">#&gt; </span>
 <span class="co">#&gt;     intersect, setdiff, setequal, union</span>
 <span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(gsheet)
 <span class="kw">library</span>(magrittr)
 <span class="kw">library</span>(tidyr)
 <span class="co">#&gt; </span>
@@ -112,7 +113,7 @@
 <div id="import-article-evaluations" class="section level1">
 <h1 class="hasAnchor">
 <a href="#import-article-evaluations" class="anchor"></a>Import article evaluations</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rrpp &lt;-<span class="st"> </span>gsheet<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/gsheet/topics/gsheet2tbl">gsheet2tbl</a></span>(
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rrpp &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/gsheet/topics/gsheet2tbl">gsheet2tbl</a></span>(
   <span class="st">"https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"</span>
 )</code></pre></div>
 <div id="calculate-reproducibility-score" class="section level2">

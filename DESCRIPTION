@@ -1,6 +1,6 @@
 Package: OPP.at.IEW12
 Version: 0.0.0.9000
-Title: Open ideas, data and code sharing: epidemiologists should be in front!
+Title: Open Ideas, Data and Code Sharing: Epidemiologists Should Be in Front!
 Description: Supplementary material for talk at IEW12 delivered by Emerson M 
   Del Ponte.
 Authors@R: c(
@@ -17,13 +17,14 @@ Suggests:
    devtools,
    dplyr,
    ggplot2,
-   gsheets,
+   gsheet,
    hrbrthemes,
    knitr,
    magrittr,
    rmarkdown,
    tidyr
 Remotes: hrbrmstr/hrbrthemes
+VignetteBuilder: knitr
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
