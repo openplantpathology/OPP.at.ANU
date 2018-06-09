@@ -3,13 +3,7 @@
 <OPP@IEW12>
 ===========
 
-[![Travis-CI Build Status](https://travis-ci.org/openplantpathology/OPP.at.IEW12.svg?branch=master)](https://travis-ci.org/openplantpathology/OPP.at.IEW12)
-
-[![Build status](https://ci.appveyor.com/api/projects/status/8ok5o041d45yfa46/branch/master?svg=true)](https://ci.appveyor.com/project/adamhsparks/opp-at-iew12/branch/master)
-
-[![DOI](https://zenodo.org/badge/136692607.svg)](https://zenodo.org/badge/latestdoi/136692607)
-
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Travis-CI Build Status](https://travis-ci.org/openplantpathology/OPP.at.IEW12.svg?branch=master)](https://travis-ci.org/openplantpathology/OPP.at.IEW12) [![Build status](https://ci.appveyor.com/api/projects/status/8ok5o041d45yfa46/branch/master?svg=true)](https://ci.appveyor.com/project/adamhsparks/opp-at-iew12/branch/master) [![DOI](https://zenodo.org/badge/136692607.svg)](https://zenodo.org/badge/latestdoi/136692607) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
 This repository contains the data and code for our presentation at the 12th International Epidemiology Workshop:
 
