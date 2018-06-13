@@ -1,31 +1,52 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-<OPP@IEW12>
-===========
 
-[![Travis-CI Build Status](https://travis-ci.org/openplantpathology/OPP.at.IEW12.svg?branch=master)](https://travis-ci.org/openplantpathology/OPP.at.IEW12) [![Build status](https://ci.appveyor.com/api/projects/status/8ok5o041d45yfa46/branch/master?svg=true)](https://ci.appveyor.com/project/adamhsparks/opp-at-iew12/branch/master) [![DOI](https://zenodo.org/badge/136692607.svg)](https://zenodo.org/badge/latestdoi/136692607) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+# <OPP@IEW12>
 
-This repository contains the data and code for our presentation at the 12th International Epidemiology Workshop:
+[![Travis-CI Build
+Status](https://travis-ci.org/openplantpathology/OPP.at.IEW12.svg?branch=master)](https://travis-ci.org/openplantpathology/OPP.at.IEW12)
+[![Build
+status](https://ci.appveyor.com/api/projects/status/8ok5o041d45yfa46/branch/master?svg=true)](https://ci.appveyor.com/project/adamhsparks/opp-at-iew12/branch/master)
+[![DOI](https://zenodo.org/badge/136692607.svg)](https://zenodo.org/badge/latestdoi/136692607)
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
-> Del Ponte, E.M. Sparks, A.H. (2018). *Open ideas, data and code sharing: epidemiologists should be in front!*. Proceedings of the 12th International Epidemiology Workshop
+This repository contains the data and code for our presentation at the
+12th International Epidemiology Workshop:
 
-The code used to generate graphs that were presented at IEW12 can be found in the [articles](https://openplantpathology.github.io/OPP.at.IEW12/articles/IEW12_slides.html).
+> Del Ponte, E.M. Sparks, A.H. (2018). *Open ideas, data and code
+> sharing: epidemiologists should be in front\!*. Proceedings of the
+> 12th International Epidemiology Workshop
 
-The data are from <https://openplantpathology.github.io/Reproducibility_in_Plant_Pathology/>
+The code used to generate graphs that were presented at IEW12 can be
+found in the
+[articles](https://openplantpathology.github.io/OPP.at.IEW12/articles/IEW12_slides.html).
 
-> Del Ponte, E.M., Everhart, S., Foster, Z.S.L., Grünwald, N., and Sparks, A.H. (2018). Compendium of R code and data for ‘Status and Best Practices for Reproducible Research In Plant Pathology’. Accessed 02 Jun 2018. Online at <https://doi.org/10.5281/zenodo.1250665>
+The data are from
+<https://openplantpathology.github.io/Reproducibility_in_Plant_Pathology/>
+
+> Del Ponte, E.M., Everhart, S., Foster, Z.S.L., Grünwald, N., and
+> Sparks, A.H. (2018). Compendium of R code and data for ‘Status and
+> Best Practices for Reproducible Research In Plant Pathology’. Accessed
+> 02 Jun 2018. Online at <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to cite
 
 Please cite this compendium as:
 
-> EM Del Ponte, AH Sparks, (2018). *Compendium of R code and data for 'Open ideas, data and code sharing: epidemiologists should be in front!'*. Accessed 09 Jun 2018. Online at <https://doi.org/10.5281/zenodo.1286101>
+> EM Del Ponte, AH Sparks, (2018). *Compendium of R code and data for
+> ‘Open ideas, data and code sharing: epidemiologists should be in
+> front\!’*. Accessed 13 Jun 2018. Online at
+> <https://doi.org/10.5281/zenodo.1286101>
 
 ### How to download or install
 
-You can download the compendium as a zip from from this URL: <https://github.com/openplantpathology/OPP.at.IEW12/archive/master.zip>
+You can download the compendium as a zip from from this URL:
+<https://github.com/openplantpathology/OPP.at.IEW12/archive/master.zip>
 
-Or you can install this compendium as an R package, OPP.at.IEW12, from GitHub with:
+Or you can install this compendium as an R package, OPP.at.IEW12, from
+GitHub with:
 
 ``` r
 devtools::install_github("openplantpathology/OPP.at.IEW12")
@@ -33,12 +54,17 @@ devtools::install_github("openplantpathology/OPP.at.IEW12")
 
 ### Licenses
 
-**Text and figures :** [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
+**Text and figures :**
+[CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
 
 **Code :** See the [DESCRIPTION](DESCRIPTION) file
 
-**Data :** [CC-0](http://creativecommons.org/publicdomain/zero/1.0/) attribution requested in reuse
+**Data :** [CC-0](http://creativecommons.org/publicdomain/zero/1.0/)
+attribution requested in reuse
 
 ### Contributions
 
-We welcome contributions from everyone. Before you get started, please see our [contributor guidelines](CONTRIBUTING.md). Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+We welcome contributions from everyone. Before you get started, please
+see our [contributor guidelines](CONTRIBUTING.md). Please note that this
+project is released with a [Contributor Code of Conduct](CONDUCT.md). By
+participating in this project you agree to abide by its terms.
