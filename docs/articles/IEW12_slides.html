@@ -117,35 +117,28 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">rrpp &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/gsheet/topics/gsheet2tbl">gsheet2tbl</a></span>(</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="st">"https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">)</a></code></pre></div>
-<div id="unnest-the-software-that-were-used" class="section level2">
-<h2 class="hasAnchor">
-<a href="#unnest-the-software-that-were-used" class="anchor"></a>Unnest the software that were used</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">rrpp &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span>rrpp <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tidyr/topics/unnest">unnest</a></span>(<span class="dt">software_used =</span> <span class="kw">strsplit</span>(software_used, <span class="st">", "</span>))</a></code></pre></div>
-</div>
 </div>
 <div id="visualise-journals" class="section level1">
 <h1 class="hasAnchor">
 <a href="#visualise-journals" class="anchor"></a>Visualise journals</h1>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> abbreviation,</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">                <span class="dt">fill =</span> art_class,</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">                <span class="dt">colour =</span> art_class)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"count"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Journal"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">45</span>,</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">                                   <span class="dt">hjust =</span> <span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_fill_manual</a></span>(<span class="st">"Article</span><span class="ch">\n</span><span class="st">Class"</span>,</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">                    <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"#7DBCE9"</span>, </a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">                               <span class="st">"#FFB148"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_colour_manual</a></span>(<span class="st">"Article</span><span class="ch">\n</span><span class="st">Class"</span>,</a>
-<a class="sourceLine" id="cb4-12" data-line-number="12">                      <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"#7DBCE9"</span>,</a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">                                 <span class="st">"#FFB148"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="dt">label =</span> <span class="st">"Random sample of 200 articles in 21 plant pathology journals"</span>,</a>
-<a class="sourceLine" id="cb4-15" data-line-number="15">          <span class="dt">subtitle =</span> <span class="st">"2012 to 2016"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/hrbrthemes/topics/theme_ipsum_rc">theme_ipsum_rc</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</a></code></pre></div>
-<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> abbreviation,</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">                <span class="dt">fill =</span> art_class,</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">                <span class="dt">colour =</span> art_class)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"count"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Journal"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">45</span>,</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">                                   <span class="dt">hjust =</span> <span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_fill_manual</a></span>(<span class="st">"Article</span><span class="ch">\n</span><span class="st">Class"</span>,</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">                    <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"#7DBCE9"</span>, </a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">                               <span class="st">"#FFB148"</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_colour_manual</a></span>(<span class="st">"Article</span><span class="ch">\n</span><span class="st">Class"</span>,</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">                      <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"#7DBCE9"</span>,</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">                                 <span class="st">"#FFB148"</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="dt">label =</span> <span class="st">"Random sample of 200 articles in 21 plant pathology journals"</span>,</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">          <span class="dt">subtitle =</span> <span class="st">"2012 to 2016"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/hrbrthemes/topics/theme_ipsum_rc">theme_ipsum_rc</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</a></code></pre></div>
+<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
 </div>
 <div id="visualise-evaluations" class="section level1">
 <h1 class="hasAnchor">
@@ -153,28 +146,48 @@
 <div id="article-classes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#article-classes" class="anchor"></a>Article classes</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> art_class,</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">                                  <span class="dt">fill =</span> molecular,</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">                 <span class="dt">colour =</span> molecular)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"count"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Classes"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">45</span>,</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">                                   <span class="dt">hjust =</span> <span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_fill_manual</a></span>(<span class="st">"Molecular"</span>,</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">                    <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"#7DBCE9"</span>, </a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">                               <span class="st">"#FFB148"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_colour_manual</a></span>(<span class="st">"Molecular"</span>,</a>
-<a class="sourceLine" id="cb5-12" data-line-number="12">                      <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"#7DBCE9"</span>,</a>
-<a class="sourceLine" id="cb5-13" data-line-number="13">                                 <span class="st">"#FFB148"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Article Classification"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/hrbrthemes/topics/theme_ipsum_rc">theme_ipsum_rc</a></span>()</a></code></pre></div>
-<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> art_class,</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">                                  <span class="dt">fill =</span> molecular,</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">                 <span class="dt">colour =</span> molecular)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"count"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Classes"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">45</span>,</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">                                   <span class="dt">hjust =</span> <span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_fill_manual</a></span>(<span class="st">"Molecular"</span>,</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">                    <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"#7DBCE9"</span>, </a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">                               <span class="st">"#FFB148"</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_colour_manual</a></span>(<span class="st">"Molecular"</span>,</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">                      <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"#7DBCE9"</span>,</a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">                                 <span class="st">"#FFB148"</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Article Classification"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/hrbrthemes/topics/theme_ipsum_rc">theme_ipsum_rc</a></span>()</a></code></pre></div>
+<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
 </div>
 <div id="computational-methods-available" class="section level2">
 <h2 class="hasAnchor">
 <a href="#computational-methods-available" class="anchor"></a>Computational methods available</h2>
 <p>Are analysis scripts and any special software used available for inspection and reuse to reproduce the work? Readily available (3) to not mentioned (1).</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> comp_mthds_avail,</a>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> comp_mthds_avail,</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">                 <span class="dt">fill =</span> art_class,</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">                 <span class="dt">colour =</span> art_class)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"count"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_fill_manual</a></span>(<span class="st">"Article Class"</span>,</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">                    <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"#7DBCE9"</span>, </a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">                               <span class="st">"#FFB148"</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_colour_manual</a></span>(<span class="st">"Article Class"</span>,</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">                      <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"#7DBCE9"</span>,</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">                                 <span class="st">"#FFB148"</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Computational Methods Availability"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/hrbrthemes/topics/theme_ipsum_rc">theme_ipsum_rc</a></span>()</a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt; Warning: Removed 7 rows containing non-finite values (stat_count).</span></a></code></pre></div>
+<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+</div>
+<div id="software-availability" class="section level2">
+<h2 class="hasAnchor">
+<a href="#software-availability" class="anchor"></a>Software availability</h2>
+<p>Is the software readily available? Open source (3, good) to proprietary and $$ (1).</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> software_avail,</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">                 <span class="dt">fill =</span> art_class,</a>
 <a class="sourceLine" id="cb6-3" data-line-number="3">                 <span class="dt">colour =</span> art_class)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"count"</span>) <span class="op">+</span></a>
@@ -184,17 +197,17 @@
 <a class="sourceLine" id="cb6-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_colour_manual</a></span>(<span class="st">"Article Class"</span>,</a>
 <a class="sourceLine" id="cb6-9" data-line-number="9">                      <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"#7DBCE9"</span>,</a>
 <a class="sourceLine" id="cb6-10" data-line-number="10">                                 <span class="st">"#FFB148"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Computational Methods Availability"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Software Availability"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb6-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb6-13" data-line-number="13"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/hrbrthemes/topics/theme_ipsum_rc">theme_ipsum_rc</a></span>()</a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; Warning: Removed 9 rows containing non-finite values (stat_count).</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; Warning: Removed 4 rows containing non-finite values (stat_count).</span></a></code></pre></div>
 <p><img src="IEW12_slides_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
 </div>
-<div id="software-availability" class="section level2">
+<div id="data-availability" class="section level2">
 <h2 class="hasAnchor">
-<a href="#software-availability" class="anchor"></a>Software availability</h2>
-<p>Is the software readily available? Open source (3, good) to proprietary and $$ (1).</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> software_avail,</a>
+<a href="#data-availability" class="anchor"></a>Data availability</h2>
+<p>Is the data readily available from a proper archiving repository, e.g. Zenodo or Dataverse (3) to not mentioned (1).</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> data_avail,</a>
 <a class="sourceLine" id="cb7-2" data-line-number="2">                 <span class="dt">fill =</span> art_class,</a>
 <a class="sourceLine" id="cb7-3" data-line-number="3">                 <span class="dt">colour =</span> art_class)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"count"</span>) <span class="op">+</span></a>
@@ -204,17 +217,17 @@
 <a class="sourceLine" id="cb7-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_colour_manual</a></span>(<span class="st">"Article Class"</span>,</a>
 <a class="sourceLine" id="cb7-9" data-line-number="9">                      <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"#7DBCE9"</span>,</a>
 <a class="sourceLine" id="cb7-10" data-line-number="10">                                 <span class="st">"#FFB148"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Software Availability"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Data Availability"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb7-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb7-13" data-line-number="13"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/hrbrthemes/topics/theme_ipsum_rc">theme_ipsum_rc</a></span>()</a>
-<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">#&gt; Warning: Removed 4 rows containing non-finite values (stat_count).</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">#&gt; Warning: Removed 1 rows containing non-finite values (stat_count).</span></a></code></pre></div>
 <p><img src="IEW12_slides_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
 </div>
-<div id="data-availability" class="section level2">
+<div id="software-citations" class="section level2">
 <h2 class="hasAnchor">
-<a href="#data-availability" class="anchor"></a>Data availability</h2>
-<p>Is the data readily available from a proper archiving repository, e.g. Zenodo or Dataverse (3) to not mentioned (1).</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> data_avail,</a>
+<a href="#software-citations" class="anchor"></a>Software citations</h2>
+<p>Was the software used properly cited? All versions and packages cited (3) to not described what was used (1).</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> software_cite,</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">                 <span class="dt">fill =</span> art_class,</a>
 <a class="sourceLine" id="cb8-3" data-line-number="3">                 <span class="dt">colour =</span> art_class)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb8-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"count"</span>) <span class="op">+</span></a>
@@ -224,36 +237,26 @@
 <a class="sourceLine" id="cb8-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_colour_manual</a></span>(<span class="st">"Article Class"</span>,</a>
 <a class="sourceLine" id="cb8-9" data-line-number="9">                      <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"#7DBCE9"</span>,</a>
 <a class="sourceLine" id="cb8-10" data-line-number="10">                                 <span class="st">"#FFB148"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Data Availability"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Software Cited"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb8-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb8-13" data-line-number="13"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/hrbrthemes/topics/theme_ipsum_rc">theme_ipsum_rc</a></span>()</a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">#&gt; Warning: Removed 1 rows containing non-finite values (stat_count).</span></a></code></pre></div>
+<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">#&gt; Warning: Removed 4 rows containing non-finite values (stat_count).</span></a></code></pre></div>
 <p><img src="IEW12_slides_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
-</div>
-<div id="software-citations" class="section level2">
-<h2 class="hasAnchor">
-<a href="#software-citations" class="anchor"></a>Software citations</h2>
-<p>Was the software used properly cited? All versions and packages cited (3) to not described what was used (1).</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> software_cite,</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">                 <span class="dt">fill =</span> art_class,</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">                 <span class="dt">colour =</span> art_class)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"count"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_fill_manual</a></span>(<span class="st">"Article Class"</span>,</a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">                    <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"#7DBCE9"</span>, </a>
-<a class="sourceLine" id="cb9-7" data-line-number="7">                               <span class="st">"#FFB148"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_colour_manual</a></span>(<span class="st">"Article Class"</span>,</a>
-<a class="sourceLine" id="cb9-9" data-line-number="9">                      <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">"#7DBCE9"</span>,</a>
-<a class="sourceLine" id="cb9-10" data-line-number="10">                                 <span class="st">"#FFB148"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Software Cited"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-13" data-line-number="13"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/hrbrthemes/topics/theme_ipsum_rc">theme_ipsum_rc</a></span>()</a>
-<a class="sourceLine" id="cb9-14" data-line-number="14"><span class="co">#&gt; Warning: Removed 4 rows containing non-finite values (stat_count).</span></a></code></pre></div>
-<p><img src="IEW12_slides_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
 </div>
 <div id="software-used-cited" class="section level2">
 <h2 class="hasAnchor">
 <a href="#software-used-cited" class="anchor"></a>Software used (cited)</h2>
 <p>What are the 10 most popular software packages used?</p>
+<div id="unnest-the-software-that-were-used" class="section level3">
+<h3 class="hasAnchor">
+<a href="#unnest-the-software-that-were-used" class="anchor"></a>Unnest the software that were used</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">rrpp &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="st">  </span>rrpp <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tidyr/topics/unnest">unnest</a></span>(<span class="dt">software_used =</span> <span class="kw">strsplit</span>(software_used, <span class="st">", "</span>))</a></code></pre></div>
+</div>
+<div id="graph-the-software-that-were-used" class="section level3">
+<h3 class="hasAnchor">
+<a href="#graph-the-software-that-were-used" class="anchor"></a>Graph the software that were used</h3>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">tab &lt;-<span class="st"> </span><span class="kw">table</span>(rrpp<span class="op">$</span>software_used)</a>
 <a class="sourceLine" id="cb10-2" data-line-number="2">tab_s &lt;-<span class="st"> </span><span class="kw">sort</span>(tab)</a>
 <a class="sourceLine" id="cb10-3" data-line-number="3">top10 &lt;-<span class="st"> </span><span class="kw">tail</span>(<span class="kw">names</span>(tab_s), <span class="dv">17</span>) <span class="co"># checking the table, there are several ties</span></a>
@@ -280,6 +283,7 @@
 <p><img src="IEW12_slides_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
 </div>
 </div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -287,11 +291,7 @@
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li>
-<a href="#import-article-evaluations">Import article evaluations</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#unnest-the-software-that-were-used">Unnest the software that were used</a></li>
-      </ul>
-</li>
+<li><a href="#import-article-evaluations">Import article evaluations</a></li>
       <li><a href="#visualise-journals">Visualise journals</a></li>
       <li>
 <a href="#visualise-evaluations">Visualise evaluations</a><ul class="nav nav-pills nav-stacked">

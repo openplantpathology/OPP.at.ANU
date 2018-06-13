@@ -33,14 +33,6 @@ rrpp <- gsheet2tbl(
 )
 ```
 
-## Unnest the software that were used
-
-```{r}
-rrpp <- 
-  rrpp %>%
-  unnest(software_used = strsplit(software_used, ", "))
-```
-
 # Visualise journals
 ```{r}
 ggplot(rrpp, aes(x = abbreviation,
@@ -172,6 +164,16 @@ ggplot(rrpp, aes(x = software_cite,
 ## Software used (cited)
 
 What are the 10 most popular software packages used?
+
+### Unnest the software that were used
+
+```{r}
+rrpp <- 
+  rrpp %>%
+  unnest(software_used = strsplit(software_used, ", "))
+```
+
+### Graph the software that were used
 
 ```{r}
 tab <- table(rrpp$software_used)
