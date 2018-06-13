@@ -41,18 +41,46 @@ rrpp <-
   unnest(software_used = strsplit(software_used, ", "))
 ```
 
+# Visualise journals
+```{r}
+ggplot(rrpp, aes(x = abbreviation,
+                fill = art_class,
+                colour = art_class)) +
+  geom_bar(stat = "count") +
+  xlab("Classes") +
+  theme(axis.text.x = element_text(angle = 45,
+                                   hjust = 1)) +
+    scale_fill_manual("Article\nClass",
+                    values = c("#7DBCE9", 
+                               "#FFB148")) +
+  scale_colour_manual("Article\nClass",
+                      values = c("#7DBCE9",
+                                 "#FFB148")) +
+  ggtitle(label = "Random sample of 200 articles in 21 plant pathology journals",
+          subtitle = "2012 to 2016") +
+  theme_ipsum_rc() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+
 # Visualise evaluations
 
 ## Article classes
 
 ```{r}
-ggplot(rrpp, aes(x = art_class)) +
-  geom_bar(stat = "count",
-           fill = "#0B5394",
-           colour = "#0B5394") +
-  xlab("Class(es)") +
+ggplot(rrpp, aes(x = art_class,
+                                  fill = molecular,
+                 colour = molecular)) +
+  geom_bar(stat = "count") +
+  xlab("Classes") +
   theme(axis.text.x = element_text(angle = 45,
                                    hjust = 1)) +
+    scale_fill_manual("Molecular",
+                    values = c("#7DBCE9", 
+                               "#FFB148")) +
+  scale_colour_manual("Molecular",
+                      values = c("#7DBCE9",
+                                 "#FFB148")) +
   ggtitle("Article Classification") +
   theme_ipsum_rc()
 ```
@@ -63,10 +91,16 @@ Are analysis scripts and any special software used available for inspection and
 reuse to reproduce the work? Readily available (3) to not mentioned (1).
 
 ```{r}
-ggplot(rrpp, aes(x = comp_mthds_avail)) +
-  geom_bar(stat = "count",
-           fill = "#0B5394",
-           colour = "#0B5394") +
+ggplot(rrpp, aes(x = comp_mthds_avail,
+                 fill = art_class,
+                 colour = art_class)) +
+  geom_bar(stat = "count") +
+  scale_fill_manual("Article Class",
+                    values = c("#7DBCE9", 
+                               "#FFB148")) +
+  scale_colour_manual("Article Class",
+                      values = c("#7DBCE9",
+                                 "#FFB148")) +
   ggtitle("Computational Methods Availability") +
   xlab("Score") +
   theme_ipsum_rc()
@@ -78,11 +112,17 @@ Is the software readily available? Open source (3, good) to proprietary and \$$
 (1).
 
 ```{r}
-ggplot(rrpp, aes(x = software_avail)) +
-  geom_bar(stat = "count",
-           fill = "#0B5394",
-           colour = "#0B5394") +
-  ggtitle("Software availability") +
+ggplot(rrpp, aes(x = software_avail,
+                 fill = art_class,
+                 colour = art_class)) +
+  geom_bar(stat = "count") +
+  scale_fill_manual("Article Class",
+                    values = c("#7DBCE9", 
+                               "#FFB148")) +
+  scale_colour_manual("Article Class",
+                      values = c("#7DBCE9",
+                                 "#FFB148")) +
+  ggtitle("Software Availability") +
   xlab("Score") +
   theme_ipsum_rc()
 ```
@@ -93,10 +133,16 @@ Is the data readily available from a proper archiving repository, e.g. Zenodo
 or Dataverse (3) to not mentioned (1).
 
 ```{r}
-ggplot(rrpp, aes(x = data_avail)) +
-  geom_bar(stat = "count",
-           fill = "#0B5394",
-           colour = "#0B5394") +
+ggplot(rrpp, aes(x = data_avail,
+                 fill = art_class,
+                 colour = art_class)) +
+  geom_bar(stat = "count") +
+  scale_fill_manual("Article Class",
+                    values = c("#7DBCE9", 
+                               "#FFB148")) +
+  scale_colour_manual("Article Class",
+                      values = c("#7DBCE9",
+                                 "#FFB148")) +
   ggtitle("Data Availability") +
   xlab("Score") +
   theme_ipsum_rc()
@@ -108,10 +154,16 @@ Was the software used properly cited? All versions and packages cited (3) to
 not described what was used (1).
 
 ```{r}
-ggplot(rrpp, aes(x = software_cite)) +
-  geom_bar(stat = "count",
-           fill = "#0B5394",
-           colour = "#0B5394") +
+ggplot(rrpp, aes(x = software_cite,
+                 fill = art_class,
+                 colour = art_class)) +
+  geom_bar(stat = "count") +
+  scale_fill_manual("Article Class",
+                    values = c("#7DBCE9", 
+                               "#FFB148")) +
+  scale_colour_manual("Article Class",
+                      values = c("#7DBCE9",
+                                 "#FFB148")) +
   ggtitle("Software Cited") +
   xlab("Score") +
   theme_ipsum_rc()
@@ -130,155 +182,19 @@ top_software$software_used <- factor(top_software$software_used,
                                      levels = rev(top10))
 
 
-ggplot(top_software, aes(x = software_used)) +
-  geom_bar(stat = "count",
-           fill = "#0B5394",
-           colour = "#0B5394") +
+ggplot(top_software, aes(x = software_used,
+                         fill = art_class,
+                         colour = art_class)) +
+  geom_bar(stat = "count") +
   ggtitle("Top 10 Software Used") +
+  scale_fill_manual("Article Class",
+                    values = c("#7DBCE9", 
+                               "#FFB148")) +
+  scale_colour_manual("Article Class",
+                      values = c("#7DBCE9",
+                                 "#FFB148")) +
   xlab("Software") +
   ylab("Count") +
   theme_ipsum_rc() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-```
-  
-
-## Reproducibility score
-
-Using the four areas above, computational method availability, software availability, software citations and data availability, how reproducible is the
-paper? In the reproducibility score, the software availability and software
-citation are weighted to half the value of data and computational method
-availability.
-
-### Calculate reproducibility score
-```{r}
-rrpp <-
-  rrpp %>%
-  rowwise() %>% 
-  mutate(
-    reproducibility_score =
-      sum(comp_mthds_avail,
-          (software_avail + software_cite) * 0.5,
-          data_avail,
-          na.rm = TRUE)
-  )
-```
-
-### Graph reproducibility score
-
-```{r}  
-  ggplot(rrpp, aes(x = reproducibility_score)) +
-  geom_bar(stat = "count",
-           fill = "#0B5394",
-           colour = "#0B5394") +
-  ggtitle("Combined Reproducibility Score") +
-  xlab("Score") +
-  theme_ipsum_rc()
-```
-
-## Article class effect on reproducibility score
-
-```{r}
-ggplot(rrpp, aes(y = reproducibility_score,
-                 x = art_class)) +
-  geom_boxplot(outlier.shape = NA,
-               colour = "#0B5394",
-               fill = "#0B5394",
-               alpha = 0.5) +
-  geom_jitter(width = 0.15,
-              alpha = 0.3,
-              colour = "#0B5394") +
-  ggtitle("Article Class Effect on Reproducibility") +
-  xlab("Class(es)") +
-  ylab("Score") +
-  theme_ipsum_rc()
-```
-
-## Journal effect on reproducibility score
-
-```{r}
-ggplot(rrpp, aes(y = reproducibility_score,
-                 x = abbreviation)) +
-  geom_boxplot(outlier.shape = NA,
-               colour = "#0B5394",
-               fill = "#0B5394",
-               alpha = 0.5) +
-  geom_jitter(width = 0.15,
-              alpha = 0.3,
-              colour = "#0B5394") +
-  ggtitle("Journal Effect on Reproducibility") +
-  xlab("Journal") +
-  ylab("Score") +
-  theme_ipsum_rc() +
-  theme(axis.text.x = element_text(angle = 90,
-                                   hjust = 1,
-                                   vjust = 0.5))
-```
-
-## Evaluator effect on reproducibility score
-
-```{r}
-ggplot(rrpp, aes(y = reproducibility_score,
-                 x = assignee)) +
-  geom_boxplot(outlier.shape = NA,
-               colour = "#0B5394",
-               fill = "#0B5394",
-               alpha = 0.5) +
-  geom_jitter(width = 0.15,
-              alpha = 0.3,
-              colour = "#0B5394") +
-  ggtitle("Evaluator Effect on Reproducibility Score") +
-  xlab("Evaluator") +
-  ylab("Score") +
-  theme_ipsum_rc()
-```
-
-## Five year impact factor effect on reproducibility score
-
-```{r}
-ggplot(rrpp, aes(y = reproducibility_score,
-                 x = as.factor(round(IF_5year, 1)))) +
-  geom_boxplot(outlier.shape = NA,
-               colour = "#0B5394",
-               fill = "#0B5394",
-               alpha = 0.5) +
-  ggtitle("Five Year IF Effect on Reproducibility Score") +
-  xlab("Impact Factor") +
-  ylab("Score") +
-  theme_ipsum_rc()
-```
-
-## Journal open access effect on reproducibility score
-
-```{r}
-ggplot(rrpp, aes(y = reproducibility_score,
-                 x = open)) +
-  geom_boxplot(outlier.shape = NA,
-               colour = "#0B5394",
-               fill = "#0B5394",
-               alpha = 0.5) +
-  geom_jitter(width = 0.15,
-              alpha = 0.3,
-              colour = "#0B5394") +
-  ggtitle("Open Access Effect on Reproducibility Score") +
-  xlab("Impact Factor") +
-  ylab("Score") +
-  theme_ipsum_rc()
-```
-
-## Journal reproducibility instructions effect on reproducibility score
-
-```{r}
-ggplot(rrpp, aes(y = reproducibility_score,
-                 x = as.factor(repro_inst))) +
-  geom_boxplot(outlier.shape = NA,
-               colour = "#0B5394",
-               fill = "#0B5394",
-               alpha = 0.5) +
-  geom_jitter(width = 0.15,
-              alpha = 0.3,
-              colour = "#0B5394") +
-  ggtitle("Reproducibility Instructions Effect on Reproducibility Score") +
-  xlab("Reproducibility Instructions Score") +
-  ylab("Score") +
-  theme_ipsum_rc()
 ```
