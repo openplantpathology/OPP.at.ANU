@@ -26,8 +26,8 @@ found in the
 The data are from
 <https://openplantpathology.github.io/Reproducibility_in_Plant_Pathology/>
 
-> Del Ponte, E.M., Everhart, S., Foster, Z.S.L., Grünwald, N., and
-> Sparks, A.H. (2018). Compendium of R code and data for ‘Status and
+> Sparks, A.H., Del Ponte, E.M., Everhart, S., Foster, Z.S.L., and
+> Grünwald, N. (2018). Compendium of R code and data for ‘Status and
 > Best Practices for Reproducible Research In Plant Pathology’. Accessed
 > 02 Jun 2018. Online at <https://doi.org/10.5281/zenodo.1250665>
 
