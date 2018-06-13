@@ -10,3 +10,4 @@
 ^\.travis\.yml$
 ^appveyor\.yml$
 ^codemeta\.json$
+^logo\.png$
