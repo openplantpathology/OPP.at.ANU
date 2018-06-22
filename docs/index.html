@@ -96,6 +96,20 @@
 <blockquote>
 <p>Sparks, A.H., Del Ponte, E.M., Everhart, S., Foster, Z.S.L., and Grünwald, N. (2018). Compendium of R code and data for ‘Status and Best Practices for Reproducible Research In Plant Pathology’. Accessed 02 Jun 2018. Online at <a href="https://doi.org/10.5281/zenodo.1250665" class="uri">https://doi.org/10.5281/zenodo.1250665</a></p>
 </blockquote>
+<div id="how-to-use" class="section level3">
+<h3 class="hasAnchor">
+<a href="#how-to-use" class="anchor"></a>How to use</h3>
+<p>Install the package using devtools and then use <code>browseVignettes</code> to see the HTML version, the raw Rmd file and only the R code of the vignette locally.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(devtools)) {</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="kw">install.packages</span>(<span class="st">"devtools"</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="kw">library</span>(devtools)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"openplantpathology/OPP.at.IEW12"</span>,</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">                         <span class="dt">build_vignettes =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="kw">browseVignettes</span>(<span class="st">"OPP.at.IEW12"</span>)</a></code></pre></div>
+</div>
 <div id="how-to-cite" class="section level3">
 <h3 class="hasAnchor">
 <a href="#how-to-cite" class="anchor"></a>How to cite</h3>
@@ -109,7 +123,7 @@
 <a href="#how-to-download-or-install" class="anchor"></a>How to download or install</h3>
 <p>You can download the compendium as a zip from from this URL: <a href="https://github.com/openplantpathology/OPP.at.IEW12/archive/master.zip" class="uri">https://github.com/openplantpathology/OPP.at.IEW12/archive/master.zip</a></p>
 <p>Or you can install this compendium as an R package, OPP.at.IEW12, from GitHub with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"openplantpathology/OPP.at.IEW12"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"openplantpathology/OPP.at.IEW12"</span>)</a></code></pre></div>
 </div>
 <div id="licenses" class="section level3">
 <h3 class="hasAnchor">

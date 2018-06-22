@@ -32,6 +32,24 @@ The data are from
 > Best Practices for Reproducible Research In Plant Pathology’. Accessed
 > 02 Jun 2018. Online at <https://doi.org/10.5281/zenodo.1250665>
 
+### How to use
+
+Install the package using devtools and then use `browseVignettes` to see
+the HTML version, the raw Rmd file and only the R code of the vignette
+locally.
+
+``` r
+if (!require(devtools)) {
+  install.packages("devtools")
+  library(devtools)
+}
+
+devtools::install_github("openplantpathology/OPP.at.IEW12",
+                         build_vignettes = TRUE)
+
+browseVignettes("OPP.at.IEW12")
+```
+
 ### How to cite
 
 Please cite this compendium as:
