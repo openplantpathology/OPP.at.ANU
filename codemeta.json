@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/adamhsparks/OPP.at.IEW12",
   "issueTracker": "https://github.com/adamhsparks/OPP.at.IEW12/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -102,7 +102,7 @@
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "sameAs": "https://github.com/hrbrmstr/hrbrthemes"
+      "sameAs": "https://CRAN.R-project.org/package=hrbrthemes"
     },
     {
       "@type": "SoftwareApplication",
@@ -155,7 +155,7 @@
   ],
   "softwareRequirements": [],
   "readme": "https://github.com/openplantpathology/OPP.at.IEW12/blob/master/README.md",
-  "fileSize": "3.729KB",
+  "fileSize": "3.694KB",
   "contIntegration": [
     "https://travis-ci.org/openplantpathology/OPP.at.IEW12",
     "https://ci.appveyor.com/project/adamhsparks/opp-at-iew12/branch/master"
