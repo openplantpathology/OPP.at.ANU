@@ -1,7 +1,8 @@
 pandoc: 2.2.1
 pkgdown: 1.1.0
 pkgdown_sha: ~
-articles: []
+articles:
+  IEW12_slides: IEW12_slides.html
 urls:
   reference: https://openplantpathology.github.io/OPP.at.IEW12//reference
   article: https://openplantpathology.github.io/OPP.at.IEW12//articles

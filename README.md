@@ -12,8 +12,9 @@ status](https://ci.appveyor.com/api/projects/status/8ok5o041d45yfa46/branch/mast
 state and is being actively
 developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
-This repository contains the data and code for our presentation at the
-12th International Epidemiology Workshop:
+<img align="right" src="man/figures/logo.png"> This repository retrieves
+the data and code for our presentation at the 12th International
+Epidemiology Workshop:
 
 > Del Ponte, E.M. Sparks, A.H. (2018). *Open ideas, data and code
 > sharing: epidemiologists should be in front\!*. Proceedings of the
@@ -37,7 +38,7 @@ Please cite this compendium as:
 
 > EM Del Ponte, AH Sparks, (2018). *Compendium of R code and data for
 > ‘Open ideas, data and code sharing: epidemiologists should be in
-> front\!’*. Accessed 13 Jun 2018. Online at
+> front\!’*. Accessed 23 Jun 2018. Online at
 > <https://doi.org/10.5281/zenodo.1286101>
 
 ### How to download or install
