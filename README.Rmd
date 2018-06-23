@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 [![DOI](https://zenodo.org/badge/136692607.svg)](https://zenodo.org/badge/latestdoi/136692607)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
-<img align="right" src="man/figures/logo.png"> This repository retrieves the data
+<img align="right" width=230 style = "margin:10px; border: 0" src="man/figures/logo.png"> This repository retrieves the data
 and code for our presentation at the 12th International Epidemiology Workshop:
 
 > Del Ponte, E.M. Sparks, A.H. (2018). _Open ideas, data and code sharing: epidemiologists should be in front!_. Proceedings of the 12th International Epidemiology Workshop 
