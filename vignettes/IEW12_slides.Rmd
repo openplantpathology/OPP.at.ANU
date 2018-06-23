@@ -20,11 +20,14 @@ knitr::opts_chunk$set(
 
 ```{r}
 library(hrbrthemes)
+library(ggthemes)
 library(dplyr)
 library(ggplot2)
 library(gsheet)
 library(magrittr)
 library(tidyr)
+theme_set(theme_ipsum_rc())
+
 ```
 
 # Import article evaluations
@@ -37,23 +40,18 @@ rrpp <- gsheet2tbl(
 
 # Visualise journals
 ```{r}
-ggplot(rrpp, aes(x = abbreviation,
-                fill = art_class,
-                colour = art_class)) +
-  geom_bar(stat = "count") +
-  xlab("Journal") +
-  theme(axis.text.x = element_text(angle = 45,
-                                   hjust = 1)) +
-    scale_fill_manual("Article\nClass",
-                    values = c("#7DBCE9", 
-                               "#FFB148")) +
-  scale_colour_manual("Article\nClass",
-                      values = c("#7DBCE9",
-                                 "#FFB148")) +
-  ggtitle(label = "Random sample of 200 articles in 21 plant pathology journals",
-          subtitle = "2012 to 2016") +
-  theme_ipsum_rc() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+rrpp %>% 
+ggplot(aes(x = abbreviation,
+                fill = art_class
+              )) +
+  geom_bar() +
+  scale_fill_few()+
+  scale_color_few()+
+  labs(x = "Journal", 
+       title = "Random sample of 200 articles in 21 plant pathology journals",
+       subtitle = "2012 to 2016", 
+       fill = "Article type") +
+   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
 
@@ -62,21 +60,14 @@ ggplot(rrpp, aes(x = abbreviation,
 ## Article classes
 
 ```{r}
-ggplot(rrpp, aes(x = art_class,
-                                  fill = molecular,
-                 colour = molecular)) +
-  geom_bar(stat = "count") +
-  xlab("Classes") +
-  theme(axis.text.x = element_text(angle = 45,
-                                   hjust = 1)) +
-    scale_fill_manual("Molecular",
-                    values = c("#7DBCE9", 
-                               "#FFB148")) +
-  scale_colour_manual("Molecular",
-                      values = c("#7DBCE9",
-                                 "#FFB148")) +
-  ggtitle("Article Classification") +
-  theme_ipsum_rc()
+rrpp %>% 
+ggplot(aes(x = art_class,
+                 fill = molecular
+                 )) +
+  geom_bar() +
+  scale_fill_few()+
+  scale_color_few()+
+  labs(title = "Article Classification", x = "Classes", fill = "Molecular") 
 ```
 
 ## Computational methods available
@@ -84,20 +75,18 @@ ggplot(rrpp, aes(x = art_class,
 Are analysis scripts and any special software used available for inspection and
 reuse to reproduce the work? Readily available (3) to not mentioned (1).
 
-```{r}
-ggplot(rrpp, aes(x = comp_mthds_avail,
-                 fill = art_class,
-                 colour = art_class)) +
-  geom_bar(stat = "count") +
-  scale_fill_manual("Article Class",
-                    values = c("#7DBCE9", 
-                               "#FFB148")) +
-  scale_colour_manual("Article Class",
-                      values = c("#7DBCE9",
-                                 "#FFB148")) +
-  ggtitle("Computational Methods Availability") +
-  xlab("Score") +
-  theme_ipsum_rc()
+```{r message=FALSE, warning=FALSE}
+rrpp %>% 
+  ggplot(aes(x = comp_mthds_avail,
+                 fill = art_class
+                 )) +
+  geom_bar() +
+  scale_fill_few()+
+  scale_color_few()+
+  labs(title = "Computational Methods Availability", 
+       x = "Score", 
+       fill = "Article class") 
+  
 ```
 
 ## Software availability
@@ -105,20 +94,18 @@ ggplot(rrpp, aes(x = comp_mthds_avail,
 Is the software readily available? Open source (3, good) to proprietary and \$$
 (1).
 
-```{r}
-ggplot(rrpp, aes(x = software_avail,
-                 fill = art_class,
-                 colour = art_class)) +
-  geom_bar(stat = "count") +
-  scale_fill_manual("Article Class",
-                    values = c("#7DBCE9", 
-                               "#FFB148")) +
-  scale_colour_manual("Article Class",
-                      values = c("#7DBCE9",
-                                 "#FFB148")) +
-  ggtitle("Software Availability") +
-  xlab("Score") +
-  theme_ipsum_rc()
+```{r message=FALSE, warning=FALSE}
+rrpp %>% 
+  ggplot(aes(x = software_avail,
+                 fill = art_class
+                 )) +
+  geom_bar()+
+  scale_fill_few()+
+  scale_color_few()+
+  labs(title = "Software Availability", 
+       x = "Score", 
+       fill = "Article class") 
+
 ```
 
 ## Data availability
@@ -126,20 +113,17 @@ ggplot(rrpp, aes(x = software_avail,
 Is the data readily available from a proper archiving repository, e.g. Zenodo
 or Dataverse (3) to not mentioned (1).
 
-```{r}
-ggplot(rrpp, aes(x = data_avail,
-                 fill = art_class,
-                 colour = art_class)) +
-  geom_bar(stat = "count") +
-  scale_fill_manual("Article Class",
-                    values = c("#7DBCE9", 
-                               "#FFB148")) +
-  scale_colour_manual("Article Class",
-                      values = c("#7DBCE9",
-                                 "#FFB148")) +
-  ggtitle("Data Availability") +
-  xlab("Score") +
-  theme_ipsum_rc()
+```{r message=FALSE, warning=FALSE}
+rrpp %>% 
+  ggplot(aes(x = data_avail,
+                 fill = art_class
+                 )) +
+  geom_bar() +
+  scale_fill_few()+
+  scale_color_few()+
+  labs(title = "Data Availability",
+       x = "Score", 
+       fill = "Article class") 
 ```
 
 ## Software citations
@@ -147,20 +131,17 @@ ggplot(rrpp, aes(x = data_avail,
 Was the software used properly cited? All versions and packages cited (3) to
 not described what was used (1).
 
-```{r}
-ggplot(rrpp, aes(x = software_cite,
-                 fill = art_class,
-                 colour = art_class)) +
-  geom_bar(stat = "count") +
-  scale_fill_manual("Article Class",
-                    values = c("#7DBCE9", 
-                               "#FFB148")) +
-  scale_colour_manual("Article Class",
-                      values = c("#7DBCE9",
-                                 "#FFB148")) +
-  ggtitle("Software Cited") +
-  xlab("Score") +
-  theme_ipsum_rc()
+```{r message=FALSE, warning=FALSE}
+rrpp %>% 
+ggplot(aes(x = software_cite,
+                 fill = art_class
+                 )) +
+  geom_bar() +
+  scale_fill_few()+
+  scale_color_few()+
+  labs(title = "Software cited", 
+       x = "Score", 
+       fill = "Article class") 
 ```
 
 ## Software used (cited)
@@ -184,21 +165,13 @@ top10 <- tail(names(tab_s), 17) # checking the table, there are several ties
 top_software <- subset(rrpp, software_used %in% top10)
 top_software$software_used <- factor(top_software$software_used,
                                      levels = rev(top10))
-
-
-ggplot(top_software, aes(x = software_used,
-                         fill = art_class,
-                         colour = art_class)) +
-  geom_bar(stat = "count") +
-  ggtitle("Top 10 Software Used") +
-  scale_fill_manual("Article Class",
-                    values = c("#7DBCE9", 
-                               "#FFB148")) +
-  scale_colour_manual("Article Class",
-                      values = c("#7DBCE9",
-                                 "#FFB148")) +
-  xlab("Software") +
-  ylab("Count") +
-  theme_ipsum_rc() +
+top_software %>% 
+ggplot(aes(x = software_used,
+                         fill = art_class
+                         )) +
+  geom_bar() +
+  scale_fill_few()+
+  scale_color_few()+
+  labs(title = "Top 10 Software Used", x = "Software", fill = "Molecular")+
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
