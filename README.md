@@ -32,7 +32,9 @@ The data are from
 > Best Practices for Reproducible Research In Plant Pathology’. Accessed
 > 02 Jun 2018. Online at <https://doi.org/10.5281/zenodo.1250665>
 
-### How to use
+## How to use
+
+### Install supporting package, hrbrthemes
 
 Install `hrbrthemes`, which provides the theme for the `ggplot2` graphs
 and loads the fonts.
@@ -53,16 +55,18 @@ directed.
 Please use hrbrthemes::import_roboto_condensed() to install Roboto Condensed
 ```
 
-### Instructions for installing Roboto Condensed on your system
+#### Instructions for installing Roboto Condensed on your system
 
-#### macOS instructions
+##### macOS instructions
 
 See <https://support.apple.com/en-us/HT201749>
 
-#### Windows instructions
+##### Windows instructions
 
 See
 <https://support.microsoft.com/en-us/help/314960/how-to-install-or-remove-a-font-in-windows>
+
+### Install OPP.at.IEW12
 
 Now install the package using devtools and then use `browseVignettes` to
 see the HTML version, the raw Rmd file and only the R code of the
