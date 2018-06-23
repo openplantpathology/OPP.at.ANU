@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/adamhsparks/OPP.at.IEW12",
   "issueTracker": "https://github.com/adamhsparks/OPP.at.IEW12/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -43,7 +43,8 @@
       "@id": "https://orcid.org/0000-0002-0061-8359"
     }
   ],
-  "softwareSuggestions": [
+  "softwareSuggestions": [],
+  "softwareRequirements": [
     {
       "@type": "SoftwareApplication",
       "identifier": "devtools",
@@ -94,18 +95,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "hrbrthemes",
-      "name": "hrbrthemes",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=hrbrthemes"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "knitr",
       "name": "knitr",
       "provider": {
@@ -115,6 +104,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "hrbrthemes",
+      "name": "hrbrthemes",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=hrbrthemes"
     },
     {
       "@type": "SoftwareApplication",
@@ -153,9 +154,8 @@
       "sameAs": "https://CRAN.R-project.org/package=tidyr"
     }
   ],
-  "softwareRequirements": [],
   "readme": "https://github.com/openplantpathology/OPP.at.IEW12/blob/master/README.md",
-  "fileSize": "3.694KB",
+  "fileSize": "33KB",
   "contIntegration": [
     "https://travis-ci.org/openplantpathology/OPP.at.IEW12",
     "https://ci.appveyor.com/project/adamhsparks/opp-at-iew12/branch/master"
