@@ -103,17 +103,19 @@
 <p>Install the package and load it. Upon loading it follow the directions for installing and loading Roboto Condensed fonts.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">"hrbrthemes"</span>, <span class="dt">dep =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(hrbrthemes)</a></code></pre></div>
+<p>Take note of these instructions and execute them and install the font, Roboto Condensed on your computer as directed.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">Please use hrbrthemes<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/hrbrthemes/topics/import_roboto_condensed">import_roboto_condensed</a></span>() to install Roboto Condensed</a></code></pre></div>
 <p>Now install the package using devtools and then use <code>browseVignettes</code> to see the HTML version, the raw Rmd file and only the R code of the vignette locally.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(devtools)) {</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="kw">install.packages</span>(<span class="st">"devtools"</span>)</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="kw">library</span>(devtools)</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"openplantpathology/OPP.at.IEW12"</span>,</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">                         <span class="dt">build_vignettes =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">                         <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="kw">browseVignettes</span>(<span class="st">"OPP.at.IEW12"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(devtools)) {</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="kw">install.packages</span>(<span class="st">"devtools"</span>)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="kw">library</span>(devtools)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"openplantpathology/OPP.at.IEW12"</span>,</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">                         <span class="dt">build_vignettes =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">                         <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="kw">browseVignettes</span>(<span class="st">"OPP.at.IEW12"</span>)</a></code></pre></div>
 </div>
 <div id="how-to-cite" class="section level3">
 <h3 class="hasAnchor">
@@ -128,7 +130,7 @@
 <a href="#how-to-download-or-install" class="anchor"></a>How to download or install</h3>
 <p>You can download the compendium as a zip from from this URL: <a href="https://github.com/openplantpathology/OPP.at.IEW12/archive/master.zip" class="uri">https://github.com/openplantpathology/OPP.at.IEW12/archive/master.zip</a></p>
 <p>Or you can install this compendium as an R package, OPP.at.IEW12, from GitHub with:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"openplantpathology/OPP.at.IEW12"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"openplantpathology/OPP.at.IEW12"</span>)</a></code></pre></div>
 </div>
 <div id="licenses" class="section level3">
 <h3 class="hasAnchor">

@@ -45,6 +45,14 @@ install.packages("hrbrthemes", dep = TRUE)
 library(hrbrthemes)
 ```
 
+Take note of these instructions and execute them and install the font,
+Roboto Condensed on your computer as
+directed.
+
+``` r
+Please use hrbrthemes::import_roboto_condensed() to install Roboto Condensed
+```
+
 Now install the package using devtools and then use `browseVignettes` to
 see the HTML version, the raw Rmd file and only the R code of the
 vignette locally.
