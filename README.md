@@ -34,9 +34,20 @@ The data are from
 
 ### How to use
 
-Install the package using devtools and then use `browseVignettes` to see
-the HTML version, the raw Rmd file and only the R code of the vignette
-locally.
+Install `hrbrthemes`, which provides the theme for the `ggplot2` graphs
+and loads the fonts.
+
+Install the package and load it. Upon loading it follow the directions
+for installing and loading Roboto Condensed fonts.
+
+``` r
+install.packages("hrbrthemes", dep = TRUE)
+library(hrbrthemes)
+```
+
+Now install the package using devtools and then use `browseVignettes` to
+see the HTML version, the raw Rmd file and only the R code of the
+vignette locally.
 
 ``` r
 if (!require(devtools)) {
@@ -45,7 +56,8 @@ if (!require(devtools)) {
 }
 
 devtools::install_github("openplantpathology/OPP.at.IEW12",
-                         build_vignettes = TRUE)
+                         build_vignettes = TRUE,
+                         dependencies = TRUE)
 
 browseVignettes("OPP.at.IEW12")
 ```
