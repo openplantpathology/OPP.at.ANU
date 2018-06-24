@@ -18,6 +18,7 @@ Imports:
    devtools,
    dplyr,
    ggplot2,
+   ggthemes,
    gsheet,
    knitr,
    hrbrthemes,
