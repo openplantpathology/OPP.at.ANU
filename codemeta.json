@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/adamhsparks/OPP.at.IEW12",
   "issueTracker": "https://github.com/adamhsparks/OPP.at.IEW12/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -80,6 +80,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=ggplot2"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "ggthemes",
+      "name": "ggthemes",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=ggthemes"
     },
     {
       "@type": "SoftwareApplication",
@@ -155,7 +167,7 @@
     }
   ],
   "readme": "https://github.com/openplantpathology/OPP.at.IEW12/blob/master/README.md",
-  "fileSize": "33.127KB",
+  "fileSize": "38.093KB",
   "contIntegration": [
     "https://travis-ci.org/openplantpathology/OPP.at.IEW12",
     "https://ci.appveyor.com/project/adamhsparks/opp-at-iew12/branch/master"
