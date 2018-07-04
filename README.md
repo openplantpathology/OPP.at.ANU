@@ -21,7 +21,7 @@ This repository retrieves the data and code for our presentation at the
 > 12th International Epidemiology Workshop
 
 The abstract can be found in
-[https://openplantpathology.github.io/OPP.at.IEW12/inst/abstract](https://openplantpathology.github.io/OPP.at.IEW12/inst/abstract/abstract.pdf).
+<https://github.com/openplantpathology/OPP.at.IEW12/tree/master/inst/abstract>.
 
 The slides of the presentation were prepared in Google Slides and can be
 found

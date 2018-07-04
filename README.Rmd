@@ -24,7 +24,7 @@ and code for our presentation at the 12th International Epidemiology Workshop:
 
 > Del Ponte, E.M. Sparks, A.H. (2018). _Open ideas, data and code sharing: epidemiologists should be in front!_. Proceedings of the 12th International Epidemiology Workshop 
 
-The abstract can be found in [https://openplantpathology.github.io/OPP.at.IEW12/inst/abstract](https://openplantpathology.github.io/OPP.at.IEW12/inst/abstract/abstract).
+The abstract can be found in [https://github.com/openplantpathology/OPP.at.IEW12/tree/master/inst/abstract](https://github.com/openplantpathology/OPP.at.IEW12/tree/master/inst/abstract).
 
 The slides of the presentation were prepared in Google Slides and can be found [here](https://docs.google.com/presentation/d/1XGWeDN_Gjohg9d-ewRRw4NK2eRDKTJp-I4-i3OoTnG4/edit?usp=sharing).
 
