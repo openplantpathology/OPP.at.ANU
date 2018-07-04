@@ -10,14 +10,14 @@
   "codeRepository": "https://github.com/adamhsparks/OPP.at.IEW12",
   "issueTracker": "https://github.com/adamhsparks/OPP.at.IEW12/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.5.0",
+    "version": "3.5.1",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.5.0 (2018-04-23)",
+  "runtimePlatform": "R version 3.5.1 (2018-07-02)",
   "author": [
     {
       "@type": "Person",
@@ -167,7 +167,7 @@
     }
   ],
   "readme": "https://github.com/openplantpathology/OPP.at.IEW12/blob/master/README.md",
-  "fileSize": "38.092KB",
+  "fileSize": "146.217KB",
   "contIntegration": [
     "https://travis-ci.org/openplantpathology/OPP.at.IEW12",
     "https://ci.appveyor.com/project/adamhsparks/opp-at-iew12/branch/master"
