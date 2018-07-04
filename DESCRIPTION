@@ -3,7 +3,6 @@ Version: 0.0.9
 Title: Open Ideas, Data and Code Sharing: Epidemiologists Should Be in Front!
 Description: Supplementary material for talk at IEW12 delivered by Emerson M 
   Del Ponte.
-DOI: 10.5281/zenodo.1297326
 Authors@R: c(
    person(given = "Adam H.", family = "Sparks",
    role = c("aut", "cre"),
