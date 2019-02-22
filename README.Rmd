@@ -65,7 +65,7 @@ See <https://support.apple.com/en-us/HT201749>
 
 See <https://support.microsoft.com/en-us/help/314960/how-to-install-or-remove-a-font-in-windows>
 
-### Install OPP.at.IEW12
+### Install OPP.at.ANU
 
 Now install the package using devtools and then use `browseVignettes` to see the
 HTML version, the raw Rmd file and only the R code of the vignette locally.
@@ -76,11 +76,11 @@ if (!require(devtools)) {
   library(devtools)
 }
 
-devtools::install_github("openplantpathology/OPP.at.IEW12",
+devtools::install_github("openplantpathology/OPP.at.ANU",
                          build_vignettes = TRUE,
                          dependencies = TRUE)
 
-browseVignettes("OPP.at.IEW12")
+browseVignettes("OPP.at.ANU")
 ```
 
 ### How to cite
@@ -91,11 +91,11 @@ Please cite this compendium as:
 
 ### How to download or install
 
-You can download the compendium as a zip from from this URL: <https://github.com/openplantpathology/OPP.at.IEW12/archive/master.zip>
+You can download the compendium as a zip from from this URL: <https://github.com/openplantpathology/OPP.at.ANU/archive/master.zip>
 
 Or you can install this compendium as an R package, OPP.at.IEW12, from GitHub with:
 ```r
-devtools::install_github("openplantpathology/OPP.at.IEW12")
+devtools::install_github("openplantpathology/OPP.at.ANU")
 ````
 
 ### Licenses
