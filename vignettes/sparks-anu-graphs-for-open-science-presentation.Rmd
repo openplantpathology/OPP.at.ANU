@@ -1,0 +1,424 @@
+---
+title: "Sparks ANU Graphs for Open Science Presentation"
+author: "Adam H Sparks"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Sparks ANU Graphs for Open Science Presentation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+collapse = TRUE,
+comment = "#>",
+fig.width = 10, 
+fig.height = 5,
+fig.path = 'figures/',
+dev = c('png')
+)
+
+library(dplyr)
+library(ggplot2)
+library(ggthemes)
+library(hrbrthemes)
+library(magrittr)
+library(tidyr)
+
+"%||%" <- function(a, b) {
+  if (!is.null(a)) a else b
+}
+
+# geom_flat_violin() code
+
+geom_flat_violin <-
+  function(mapping = NULL,
+           data = NULL,
+           stat = "ydensity",
+           position = "dodge",
+           trim = TRUE,
+           scale = "area",
+           show.legend = NA,
+           inherit.aes = TRUE,
+           ...) {
+    layer(
+      data = data,
+      mapping = mapping,
+      stat = stat,
+      geom = GeomFlatViolin,
+      position = position,
+      show.legend = show.legend,
+      inherit.aes = inherit.aes,
+      params = list(trim = trim,
+                    scale = scale,
+                    ...)
+    )
+  }
+
+#' @rdname ggplot2-ggproto
+#' @format NULL
+#' @usage NULL
+#' @export
+GeomFlatViolin <-
+  ggproto(
+    "GeomFlatViolin",
+    Geom,
+    setup_data = function(data, params) {
+      data$width <- data$width %||%
+        params$width %||% (resolution(data$x, FALSE) * 0.9)
+      
+      # ymin, ymax, xmin, and xmax define the bounding rectangle for each group
+      data %>%
+        group_by(group) %>%
+        mutate(
+          ymin = min(y),
+          ymax = max(y),
+          xmin = x,
+          xmax = x + width / 2
+        )
+    },
+    
+    draw_group = function(data, panel_scales, coord) {
+      # Find the points for the line to go all the way around
+      data <- transform(data,
+                        xminv = x,
+                        xmaxv = x + violinwidth * (xmax - x))
+      
+      # Make sure it's sorted properly to draw the outline
+      newdata <- rbind(plyr::arrange(transform(data, x = xminv), y),
+                       plyr::arrange(transform(data, x = xmaxv), -y))
+      
+      # Close the polygon: set first and last point the same
+      # Needed for coord_polar and such
+      newdata <- rbind(newdata, newdata[1, ])
+      
+      ggplot2:::ggname("geom_flat_violin",
+                       GeomPolygon$draw_panel(newdata, panel_scales, coord))
+    },
+    
+    draw_key = draw_key_polygon,
+    
+    default_aes = aes(
+      weight = 1,
+      colour = "grey20",
+      fill = "white",
+      size = 0.5,
+      alpha = NA,
+      linetype = "solid"
+    ),
+    
+    required_aes = c("x", "y")
+  )
+```
+
+# Import article evaluations
+
+```{r import}
+rrpp <- gsheet::gsheet2tbl(
+  "https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"
+)
+```
+
+## Calculate reproducibility score
+
+```{r calculate-score}
+rrpp <-
+  rrpp %>%
+  mutate(
+    reproducibility_score =
+      if_else(
+        condition = data_avail > 0,
+        
+        true = as.integer(comp_mthds_avail) +
+          as.integer(software_avail) +
+          as.integer(software_cite) +
+          as.integer(data_avail),
+        
+        false = as.integer(data_avail),
+        
+        missing = as.integer(0)
+      )
+  )
+```
+
+## Unnest the software that were used
+
+Create a tidy data frame of the data by unnesting software used as in many cases
+multiple software packages were used, so will end up with multiple rows for same
+article, one for each software.
+
+```{r unnest-software}
+rrpp_software <- 
+  rrpp %>%
+  unnest(software_used = strsplit(software_used, ", "))
+```
+
+# Visualise evaluations
+
+## Article classes
+
+```{r article-classes}
+ggplot(rrpp, aes(x = art_class)) +
+  geom_bar(stat = "count",
+           aes(fill = art_class)) +
+  xlab("Class(es)") +
+  scale_fill_few() +
+  ggtitle("Article Classification") +
+  coord_flip() +
+  theme_ipsum_rc() +
+  guides(fill = FALSE)
+```
+
+## Journals and articles sampled
+
+```{r journals-sampled}
+ggplot(rrpp, aes(x = abbreviation)) +
+  geom_bar(stat = "count",
+           aes(fill = art_class)) +
+  xlab("Journal Abbreviation") +
+  scale_fill_few(name = "Article Class") +
+  ggtitle("Journals Sampled") +
+  coord_flip() +
+  theme_ipsum_rc()
+```
+
+## Computational methods available
+
+```{r comp-methods}
+ggplot(rrpp, aes(x = comp_mthds_avail)) +
+  geom_bar(aes(fill = art_class)) +
+  ggtitle("Computational Methods Availability") +
+  xlab("Score") +
+  scale_fill_few(name = "Article Class") +
+  coord_flip() +
+  theme_ipsum_rc()
+```
+
+## Software availability
+
+Was the software used readily available and preferably open-source?
+
+```{r software-avail}
+ggplot(rrpp, aes(x = software_avail)) +
+  geom_bar(aes(fill = art_class)) +
+  ggtitle("Software Availability") +
+  xlab("Score") +
+  scale_fill_few(name = "Article Class") +
+  coord_flip() +
+  theme_ipsum_rc()
+```
+
+## Data availability
+
+Was the data made available?
+
+```{r data-avail}
+ggplot(rrpp, aes(x = data_avail)) +
+  geom_bar(aes(fill = art_class)) +
+  ggtitle("Data Availability") +
+  xlab("Score") +
+  scale_fill_few(name = "Article Class") +
+  coord_flip() +
+  theme_ipsum_rc()
+```
+
+## Software citations
+
+Was the software that was used properly cited?
+
+```{r software-cite}
+ggplot(rrpp, aes(x = software_cite)) +
+  geom_bar(aes(fill = art_class)) +
+  ggtitle("Software Cited") +
+  xlab("Score") +
+  scale_fill_few(name = "Article Class") +
+  coord_flip() +
+  theme_ipsum_rc()
+```
+
+## Software used (cited)
+
+Count and sort top 10 software packages cited. There are likely others that are
+used, but they have not been properly identified by the authors.
+
+```{r software-used}
+tab <- table(rrpp_software$software_used)
+tab_s <- sort(tab)
+top10 <- tail(names(tab_s), 17) # checking the table, there are several ties
+top_software <- subset(rrpp_software, software_used %in% top10)
+top_software$software_used <- factor(top_software$software_used,
+                                     levels = rev(top10))
+
+ggplot(top_software, aes(x = software_used)) +
+  geom_bar(aes(fill = art_class)) +
+  ggtitle("Top 10 Software Used") +
+  xlab("Software") +
+  ylab("Count") +
+  scale_fill_few(name = "Article Class") +
+  coord_flip() +
+  theme_ipsum_rc()
+```
+
+## Reproducibility score
+
+The reproducibility score was calculated as the sum of the scores for computational
+method availability, 
+
+```{r reproducibility-score}
+ggplot(rrpp, aes(x = reproducibility_score)) +
+  geom_bar(aes(fill = art_class)) +
+  ggtitle("Combined Reproducibility Score") +
+  xlab("Score") +
+  scale_fill_few(name = "Article Class") +
+  coord_flip() +
+  theme_ipsum_rc()
+```
+
+## Article class effect on reproducibility score
+
+```{r art-class-repro-score}
+ggplot(rrpp,
+       aes(
+         fill = art_class,
+         colour = art_class,
+         x = art_class,
+         y = reproducibility_score
+       )) +
+  geom_flat_violin(position = position_nudge(x = .2, y = 0)) +
+  geom_jitter(width = .15,
+              size = .5) +
+  geom_boxplot(width = 0.1,
+               outlier.shape = NA,
+               color = "#666666") +
+  ggtitle("Article Class Effect on Reproducibility") +
+  xlab("Class(es)") +
+  ylab("Score") +
+  scale_fill_few(name = "Article Class") +
+  scale_colour_few(name = "Article Class") +
+  coord_flip() +
+  theme_ipsum_rc() +
+  guides(fill = FALSE, colour = FALSE)
+```
+
+## Journal effect on reproducibility score
+
+```{r journal-repro-score}
+ggplot(rrpp, aes(y = reproducibility_score,
+                 x = abbreviation)) +
+  geom_boxplot(fill = "#5da5da",
+               colour = "#666666") +
+  ggtitle("Journal Effect on Reproducibility") +
+  xlab("Journal") +
+  ylab("Score") +
+  scale_fill_few(name = "Article Class") +
+  scale_colour_few(name = "Article Class") +
+  coord_flip() +
+  theme_ipsum_rc() +
+  guides(fill = FALSE, colour = FALSE)
+```
+
+## Evaluator effect on reproducibility score
+
+```{r eval-repro-score}
+ggplot(rrpp, aes(y = reproducibility_score,
+                 x = assignee)) +
+  geom_flat_violin(position = position_nudge(x = .2, y = 0),
+                   colour = "#5da5da",
+                   fill = "#5da5da") +
+  geom_jitter(
+    width = .15,
+    size = .5,
+    colour = "#5da5da",
+    fill = "#5da5da"
+  ) +
+  geom_boxplot(width = 0.1,
+               outlier.shape = NA,
+               color = "#666666") +
+  ggtitle("Evaluator Effect on Reproducibility Score") +
+  xlab("Evaluator") +
+  ylab("Score") +
+  scale_fill_few(name = "Article Class") +
+  scale_colour_few(name = "Article Class") +
+  coord_flip() +
+  theme_ipsum_rc() +
+  guides(fill = FALSE, colour = FALSE)
+```
+
+## Five year impact factor effect on reproducibility score
+
+```{r 5-year-repro-score}
+ggplot(rrpp, aes(y = reproducibility_score,
+                 x = as.factor(round(IF_5year, 1)))) +
+  geom_boxplot(fill = "#5da5da",
+               colour = "#666666") +
+  ggtitle("Five Year IF Effect on Reproducibility Score") +
+  xlab("Impact Factor") +
+  ylab("Score") +
+  scale_fill_few(name = "Article Class") +
+  scale_colour_few(name = "Article Class") +
+  coord_flip() +
+  theme_ipsum_rc() +
+  guides(fill = FALSE, colour = FALSE)
+```
+
+## Journal open access effect on reproducibility score
+
+```{r open-access-repro-score}
+ggplot(rrpp,
+       aes(
+         y = reproducibility_score,
+         x = open)) +
+  geom_flat_violin(
+    position = position_nudge(x = .2, y = 0),
+    fill = "#5da5da",
+    colour = "#5da5da"
+  ) +
+  geom_jitter(
+    width = .15,
+    size = .5,
+    fill = "#5da5da",
+    colour = "#5da5da"
+  ) +
+  geom_boxplot(width = 0.1,
+               outlier.shape = NA,
+               color = "#666666") +
+  ggtitle("Open Access Effect on Reproducibility Score") +
+  xlab("Impact Factor") +
+  ylab("Score") +
+  scale_fill_few(name = "Article Class") +
+  scale_colour_few(name = "Article Class") +
+  coord_flip() +
+  theme_ipsum_rc() +
+  guides(fill = FALSE, colour = FALSE)
+```
+
+## Journal reproducibility instructions effect on reproducibility score
+
+```{r repro-instructions-repro-score}
+ggplot(rrpp,
+       aes(y = reproducibility_score,
+           x = as.factor(repro_inst))) +
+  geom_flat_violin(
+    position = position_nudge(x = .2, y = 0),
+    fill = "#5da5da",
+    colour = "#5da5da"
+  ) +
+  geom_jitter(
+    width = .15,
+    size = .5,
+    fill = "#5da5da",
+    colour = "#5da5da"
+  ) +
+  geom_boxplot(width = 0.1,
+               outlier.shape = NA,
+               color = "#666666") +
+  ggtitle("Reproducibility Instructions Effect on Reproducibility Score") +
+  xlab("Journal Reproducibility Instructions Score") +
+  ylab("Article Score") +
+  scale_fill_few(name = "Article Class") +
+  scale_colour_few(name = "Article Class") +
+  coord_flip() +
+  theme_ipsum_rc() +
+  guides(fill = FALSE, colour = FALSE)
+```

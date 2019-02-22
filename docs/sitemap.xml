@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://openplantpathology.github.io/OPP.at.IEW12//index.html</loc>
+    <loc>https://openplantpathology.github.io/OPP.at.ANU//index.html</loc>
   </url>
   <url>
-    <loc>https://openplantpathology.github.io/OPP.at.IEW12//reference/OPP.at.IEW2018.html</loc>
+    <loc>https://openplantpathology.github.io/OPP.at.ANU//reference/OPP.at.ANU.html</loc>
   </url>
   <url>
-    <loc>https://openplantpathology.github.io/OPP.at.IEW12//articles/IEW12_slides.html</loc>
+    <loc>https://openplantpathology.github.io/OPP.at.ANU//articles/sparks-anu-graphs-for-open-science-presentation.html</loc>
   </url>
 </urlset>

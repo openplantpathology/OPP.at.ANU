@@ -1,8 +1,7 @@
-Package: OPP.at.IEW12
+Package: OPP.at.ANU
 Version: 0.0.9
-Title: Open Ideas, Data and Code Sharing: Epidemiologists Should Be in Front!
-Description: Supplementary material for talk at IEW12 delivered by Emerson M 
-  Del Ponte.
+Title: What's so Open About Plant Pathology?
+Description: Supplementary material for talk at ANU Open Science Day delivered by Adam H Sparks.
 Authors@R: c(
    person(given = "Adam H.", family = "Sparks",
    role = c("aut", "cre"),
@@ -28,6 +27,6 @@ VignetteBuilder: knitr
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 URL: https://github.com/adamhsparks/OPP.at.IEW12
 BugReports: https://github.com/adamhsparks/OPP.at.IEW12/issues

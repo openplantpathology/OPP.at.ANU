@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# <OPP@IEW12>
+# <OPP@ANU>
 
 [![Travis-CI Build
 Status](https://travis-ci.org/openplantpathology/OPP.at.IEW12.svg?branch=master)](https://travis-ci.org/openplantpathology/OPP.at.IEW12)
@@ -16,20 +16,17 @@ developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repo
 This repository retrieves the data and code for our presentation at the
 12th International Epidemiology Workshop:
 
-> Del Ponte, E.M. Sparks, A.H. (2018). *Open ideas, data and code
-> sharing: epidemiologists should be in front\!*. Proceedings of the
-> 12th International Epidemiology Workshop
-
-The abstract can be found in
-<https://github.com/openplantpathology/OPP.at.IEW12/tree/master/inst/abstract>.
+> Sparks, A.H. and Del Ponte, E. M. (2019). *What’s so Open About Plant
+> Pathology?*. Australian National University Open Science Day.
+> 2019-02-25
 
 The slides of the presentation were prepared in Google Slides and can be
 found
 [here](https://docs.google.com/presentation/d/1XGWeDN_Gjohg9d-ewRRw4NK2eRDKTJp-I4-i3OoTnG4/edit?usp=sharing).
 
-The code used to generate graphs that were presented at IEW12 can be
-found in the
-[articles](https://openplantpathology.github.io/OPP.at.IEW12/articles/IEW12_slides.html).
+The code used to generate graphs that were presented at ANU can be found
+in the
+[articles](https://openplantpathology.github.io/OPP.at.ANU/articles/IEW12_slides.html).
 
 The data are from
 <https://openplantpathology.github.io/Reproducibility_in_Plant_Pathology/>.
@@ -96,9 +93,9 @@ browseVignettes("OPP.at.IEW12")
 
 Please cite this compendium as:
 
-> EM Del Ponte, AH Sparks, (2018). *Compendium of R code and data for
+> EM Del Ponte, AH Sparks, (2019). *Compendium of R code and data for
 > ‘Open ideas, data and code sharing: epidemiologists should be in
-> front\!’*. Accessed 04 Jul 2018. Online at
+> front\!’*. Accessed 22 Feb 2019. Online at
 > <https://doi.org/10.5281/zenodo.1286101>
 
 ### How to download or install
