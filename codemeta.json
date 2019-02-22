@@ -1,12 +1,9 @@
 {
-  "@context": [
-    "https://doi.org/10.5063/schema/codemeta-2.0",
-    "http://schema.org"
-  ],
+  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
   "@type": "SoftwareSourceCode",
-  "identifier": "OPP.at.IEW12",
-  "description": "Supplementary material for talk at IEW12 delivered by Emerson M \n  Del Ponte.",
-  "name": "OPP.at.IEW12: Open Ideas, Data and Code Sharing: Epidemiologists Should Be in Front!",
+  "identifier": "OPP.at.ANU",
+  "description": "Supplementary material for talk at ANU Open Science Day delivered by Adam H Sparks.",
+  "name": "OPP.at.ANU: What's so Open About Plant Pathology?",
   "codeRepository": "https://github.com/adamhsparks/OPP.at.IEW12",
   "issueTracker": "https://github.com/adamhsparks/OPP.at.IEW12/issues",
   "license": "https://spdx.org/licenses/MIT",
@@ -14,10 +11,10 @@
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.5.1",
+    "version": "3.5.2",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.5.1 (2018-07-02)",
+  "runtimePlatform": "R version 3.5.2 (2018-12-20)",
   "author": [
     {
       "@type": "Person",
@@ -166,11 +163,9 @@
       "sameAs": "https://CRAN.R-project.org/package=tidyr"
     }
   ],
-  "readme": "https://github.com/openplantpathology/OPP.at.IEW12/blob/master/README.md",
-  "fileSize": "146.217KB",
-  "contIntegration": [
-    "https://travis-ci.org/openplantpathology/OPP.at.IEW12",
-    "https://ci.appveyor.com/project/adamhsparks/opp-at-iew12/branch/master"
-  ],
-  "developmentStatus": "http://www.repostatus.org/#active"
+  "readme": "https://github.com/openplantpathology/OPP.at.ANU/blob/master/README.md",
+  "fileSize": "902.704KB",
+  "contIntegration": ["https://travis-ci.org/openplantpathology/OPP.at.ANU", "https://ci.appveyor.com/project/adamhsparks/opp-at-anu/branch/master"],
+  "developmentStatus": "http://www.repostatus.org/#active",
+  "keywords": ["presentation-slides", "open-science", "reproducible-research", "reproducibility"]
 }
