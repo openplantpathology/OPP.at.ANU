@@ -14,9 +14,9 @@ knitr::opts_chunk$set(
 
 # OPP@ANU
 
-[![Travis-CI Build Status](https://travis-ci.org/openplantpathology/OPP.at.IEW12.svg?branch=master)](https://travis-ci.org/openplantpathology/OPP.at.IEW12)
+[![Build Status](https://travis-ci.org/openplantpathology/OPP.at.ANU.svg?branch=master)](https://travis-ci.org/openplantpathology/OPP.at.ANU)
 [![Build status](https://ci.appveyor.com/api/projects/status/lrr3puyl7cpo9ydu/branch/master?svg=true)](https://ci.appveyor.com/project/adamhsparks/opp-at-anu/branch/master)
-[![DOI](https://zenodo.org/badge/136692607.svg)](https://zenodo.org/badge/latestdoi/136692607)
+[![DOI](https://zenodo.org/badge/172012900.svg)](https://zenodo.org/badge/latestdoi/172012900)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
 <img align="right" width=230 style = "margin:10px; border: 0" src="man/figures/logo.png"> This repository retrieves the data

@@ -3,11 +3,11 @@
 
 # <OPP@ANU>
 
-[![Travis-CI Build
-Status](https://travis-ci.org/openplantpathology/OPP.at.IEW12.svg?branch=master)](https://travis-ci.org/openplantpathology/OPP.at.IEW12)
 [![Build
-status](https://ci.appveyor.com/api/projects/status/8ok5o041d45yfa46/branch/master?svg=true)](https://ci.appveyor.com/project/adamhsparks/opp-at-iew12/branch/master)
-[![DOI](https://zenodo.org/badge/136692607.svg)](https://zenodo.org/badge/latestdoi/136692607)
+Status](https://travis-ci.org/openplantpathology/OPP.at.ANU.svg?branch=master)](https://travis-ci.org/openplantpathology/OPP.at.ANU)
+[![Build
+status](https://ci.appveyor.com/api/projects/status/lrr3puyl7cpo9ydu/branch/master?svg=true)](https://ci.appveyor.com/project/adamhsparks/opp-at-anu/branch/master)
+[![DOI](https://zenodo.org/badge/172012900.svg)](https://zenodo.org/badge/latestdoi/172012900)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
@@ -70,7 +70,7 @@ See <https://support.apple.com/en-us/HT201749>
 See
 <https://support.microsoft.com/en-us/help/314960/how-to-install-or-remove-a-font-in-windows>
 
-### Install OPP.at.IEW12
+### Install OPP.at.ANU
 
 Now install the package using devtools and then use `browseVignettes` to
 see the HTML version, the raw Rmd file and only the R code of the
@@ -82,11 +82,11 @@ if (!require(devtools)) {
   library(devtools)
 }
 
-devtools::install_github("openplantpathology/OPP.at.IEW12",
+devtools::install_github("openplantpathology/OPP.at.ANU",
                          build_vignettes = TRUE,
                          dependencies = TRUE)
 
-browseVignettes("OPP.at.IEW12")
+browseVignettes("OPP.at.ANU")
 ```
 
 ### How to cite
@@ -101,13 +101,13 @@ Please cite this compendium as:
 ### How to download or install
 
 You can download the compendium as a zip from from this URL:
-<https://github.com/openplantpathology/OPP.at.IEW12/archive/master.zip>
+<https://github.com/openplantpathology/OPP.at.ANU/archive/master.zip>
 
 Or you can install this compendium as an R package, OPP.at.IEW12, from
 GitHub with:
 
 ``` r
-devtools::install_github("openplantpathology/OPP.at.IEW12")
+devtools::install_github("openplantpathology/OPP.at.ANU")
 ```
 
 ### Licenses
