@@ -22,9 +22,9 @@ knitr::opts_chunk$set(
 <img align="right" width=230 style = "margin:10px; border: 0" src="man/figures/logo.png"> This repository retrieves the data
 and code for our presentation at the 12th International Epidemiology Workshop:
 
-> Sparks, A.H. and Del Ponte, E. M. (2019). _What's so Open About Plant Pathology?_. Australian National University Open Science Day. 2019-02-25
+> Adam H. Sparks and Emerson Del Ponte. (2019). _What's so Open About Plant Pathology?_ version 0.0.10. Australian National University Open Science Day. 2019-02-25, https://openplantpathology.github.io/OPP.at.ANU/
 
-The slides of the presentation were prepared in Google Slides and can be found [here](https://docs.google.com/presentation/d/1XGWeDN_Gjohg9d-ewRRw4NK2eRDKTJp-I4-i3OoTnG4/edit?usp=sharing).
+The slides of the presentation were prepared in Google Slides and can be found [on Speaker Deck](https://speakerdeck.com/adamhsparks/whats-so-open-about-plant-pathology).
 
 The code used to generate graphs that were presented at ANU can be found in
 the [articles](https://openplantpathology.github.io/OPP.at.ANU/articles/sparks-anu-graphs-for-open-science-presentation.html).
@@ -87,13 +87,13 @@ browseVignettes("OPP.at.ANU")
 
 Please cite this compendium as:
 
-> EM Del Ponte, AH Sparks, (`r format(Sys.Date(), "%Y")`). _Compendium of R code and data for 'Open ideas, data and code sharing: epidemiologists should be in front!'_. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/10.5281/zenodo.1286101>
+>  Sparks, A.H. and Del Ponte, E. M. (2019). _What's so Open About Plant Pathology?_. Australian National University Open Science Day. 2019-02-25. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/10.5281/zenodo.2575300>
 
 ### How to download or install
 
 You can download the compendium as a zip from from this URL: <https://github.com/openplantpathology/OPP.at.ANU/archive/master.zip>
 
-Or you can install this compendium as an R package, OPP.at.IEW12, from GitHub with:
+Or you can install this compendium as an R package, OPP.at.ANU, from GitHub with:
 ```r
 devtools::install_github("openplantpathology/OPP.at.ANU")
 ````

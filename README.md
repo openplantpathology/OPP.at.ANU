@@ -21,12 +21,12 @@ This repository retrieves the data and code for our presentation at the
 > 2019-02-25
 
 The slides of the presentation were prepared in Google Slides and can be
-found
-[here](https://docs.google.com/presentation/d/1XGWeDN_Gjohg9d-ewRRw4NK2eRDKTJp-I4-i3OoTnG4/edit?usp=sharing).
+found [on Speaker
+Deck](https://speakerdeck.com/adamhsparks/whats-so-open-about-plant-pathology).
 
 The code used to generate graphs that were presented at ANU can be found
 in the
-[articles](https://openplantpathology.github.io/OPP.at.ANU/articles/IEW12_slides.html).
+[articles](https://openplantpathology.github.io/OPP.at.ANU/articles/sparks-anu-graphs-for-open-science-presentation.html).
 
 The data are from
 <https://openplantpathology.github.io/Reproducibility_in_Plant_Pathology/>.
@@ -52,8 +52,7 @@ library(hrbrthemes)
 ```
 
 Take note of these instructions and execute them and then install the
-font, Roboto Condensed on your computer as
-directed.
+font, Roboto Condensed on your computer as directed.
 
 ``` r
 Please use hrbrthemes::import_roboto_condensed() to install Roboto Condensed
@@ -93,17 +92,17 @@ browseVignettes("OPP.at.ANU")
 
 Please cite this compendium as:
 
-> EM Del Ponte, AH Sparks, (2019). *Compendium of R code and data for
-> ‘Open ideas, data and code sharing: epidemiologists should be in
-> front\!’*. Accessed 22 Feb 2019. Online at
-> <https://doi.org/10.5281/zenodo.1286101>
+> Sparks, A.H. and Del Ponte, E. M. (2019). *What’s so Open About Plant
+> Pathology?*. Australian National University Open Science Day.
+> 2019-02-25. Accessed 28 Mar 2019. Online at
+> <https://doi.org/10.5281/zenodo.2575300>
 
 ### How to download or install
 
 You can download the compendium as a zip from from this URL:
 <https://github.com/openplantpathology/OPP.at.ANU/archive/master.zip>
 
-Or you can install this compendium as an R package, OPP.at.IEW12, from
+Or you can install this compendium as an R package, OPP.at.ANU, from
 GitHub with:
 
 ``` r
