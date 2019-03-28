@@ -8,17 +8,19 @@ Status](https://travis-ci.org/openplantpathology/OPP.at.ANU.svg?branch=master)](
 [![Build
 status](https://ci.appveyor.com/api/projects/status/lrr3puyl7cpo9ydu/branch/master?svg=true)](https://ci.appveyor.com/project/adamhsparks/opp-at-anu/branch/master)
 [![DOI](https://zenodo.org/badge/172012900.svg)](https://zenodo.org/badge/latestdoi/172012900)
-[![Project Status: Active – The project has reached a stable, usable
-state and is being actively
-developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Project Status: Inactive – The project has reached a stable, usable
+state but is no longer being actively developed; support/maintenance
+will be provided as time
+allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 
 <img align="right" width=230 style = "margin:10px; border: 0" src="man/figures/logo.png">
 This repository retrieves the data and code for our presentation at the
 12th International Epidemiology Workshop:
 
-> Sparks, A.H. and Del Ponte, E. M. (2019). *What’s so Open About Plant
-> Pathology?*. Australian National University Open Science Day.
-> 2019-02-25
+> Adam H. Sparks and Emerson Del Ponte. (2019). *What’s so Open About
+> Plant Pathology?* version 0.0.10. Australian National University Open
+> Science Day. 2019-02-25,
+> <https://openplantpathology.github.io/OPP.at.ANU/>
 
 The slides of the presentation were prepared in Google Slides and can be
 found [on Speaker

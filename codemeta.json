@@ -1,5 +1,8 @@
 {
-  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@context": [
+    "https://doi.org/10.5063/schema/codemeta-2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "OPP.at.ANU",
   "description": "Supplementary material for talk at ANU Open Science Day delivered by Adam H Sparks.",
@@ -167,8 +170,11 @@
     }
   ],
   "readme": "https://github.com/openplantpathology/OPP.at.ANU/blob/master/README.md",
-  "fileSize": "903.613KB",
-  "contIntegration": ["https://travis-ci.org/openplantpathology/OPP.at.ANU", "https://ci.appveyor.com/project/adamhsparks/opp-at-anu/branch/master"],
+  "fileSize": "904.654KB",
+  "contIntegration": [
+    "https://travis-ci.org/openplantpathology/OPP.at.ANU",
+    "https://ci.appveyor.com/project/adamhsparks/opp-at-anu/branch/master"
+  ],
   "developmentStatus": "http://www.repostatus.org/#active",
   "citation": [
     {
